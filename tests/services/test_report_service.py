@@ -186,8 +186,10 @@ def test_manifest_is_self_describing_and_points_to_existing_artifacts(tmp_path) 
     assert manifest["run_id"] == run_path.name
     assert manifest["created_at"].endswith("Z")
     assert manifest["counts"] == {
+        "duplicate_sources": 0,
         "input_jobs": 2,
         "expert_outputs": 2,
+        "failed_jobs": 0,
     }
     assert manifest["artifacts"] == {
         "aggregate_report": "aggregate_report.json",
@@ -195,6 +197,8 @@ def test_manifest_is_self_describing_and_points_to_existing_artifacts(tmp_path) 
         "final_report": "final_report.json",
         "input_jobs": "input_jobs.json",
     }
+    assert manifest["duplicate_sources"] == []
+    assert manifest["failed_jobs"] == []
 
     for filename in manifest["artifacts"].values():
         assert (run_path / filename).exists()

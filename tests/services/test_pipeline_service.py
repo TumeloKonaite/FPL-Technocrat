@@ -123,6 +123,7 @@ def test_run_pipeline_persists_artifacts_to_requested_output_dir(tmp_path) -> No
     assert json.loads((output_dir / "expert_outputs.json").read_text(encoding="utf-8")) == [
         analysis.model_dump()
     ]
+    assert result.duplicate_sources == []
 
 
 def test_run_pipeline_uses_fallback_report_when_synthesis_is_disabled(tmp_path) -> None:

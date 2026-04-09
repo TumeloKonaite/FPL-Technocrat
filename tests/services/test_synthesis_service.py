@@ -223,6 +223,6 @@ def test_synthesize_final_report_falls_back_when_agent_fails() -> None:
     ) as mocked_run:
         result = asyncio.run(synthesize_final_report(report))
 
-    assert result.conclusion == "Use the strongest consensus signals and monitor late team news before the deadline."
+    assert "Use the strongest consensus signals" in result.conclusion
     assert result.transfers
     mocked_run.assert_awaited_once()

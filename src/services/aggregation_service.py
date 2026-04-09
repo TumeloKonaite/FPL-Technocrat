@@ -15,6 +15,7 @@ from src.services.disagreement_service import (
 from src.services.normalization import (
     canonical_chip_display,
     canonical_player_display,
+    build_analysis_identity,
     normalize_chip_name,
     normalize_lookup_key,
     normalize_player_name,
@@ -43,6 +44,32 @@ def _unique_normalized_players(players: list[str]) -> set[str]:
 
 def _unique_normalized_text(items: list[str]) -> set[str]:
     return {normalize_text_label(item) for item in items if normalize_text_label(item)}
+
+
+def dedupe_analyses(
+    analyses: list[ExpertVideoAnalysis],
+) -> tuple[list[ExpertVideoAnalysis], list[dict[str, str]]]:
+    deduped: list[ExpertVideoAnalysis] = []
+    seen: dict[str, ExpertVideoAnalysis] = {}
+    duplicate_decisions: list[dict[str, str]] = []
+
+    for analysis in analyses:
+        identity, reason = build_analysis_identity(analysis)
+        if identity in seen:
+            duplicate_decisions.append(
+                {
+                    "kept_source": seen[identity].video_title,
+                    "duplicate_source": analysis.video_title,
+                    "kept_expert": seen[identity].expert_name,
+                    "duplicate_expert": analysis.expert_name,
+                    "reason": reason,
+                }
+            )
+            continue
+        seen[identity] = analysis
+        deduped.append(analysis)
+
+    return deduped, duplicate_decisions
 
 
 def aggregate_player_consensus(
@@ -243,6 +270,9 @@ def aggregate_chip_strategy(
 def build_aggregated_fpl_report(
     analyses: list[ExpertVideoAnalysis],
 ) -> AggregatedFPLReport:
+    deduped_analyses, _ = dedupe_analyses(analyses)
+    analyses = deduped_analyses
+
     if not analyses:
         return AggregatedFPLReport(
             gameweek=None,
@@ -261,7 +291,7 @@ def build_aggregated_fpl_report(
 
     return AggregatedFPLReport(
         gameweek=analyses[0].gameweek,
-        expert_count=len(analyses),
+        expert_count=len({analysis.expert_name for analysis in analyses}),
         player_consensus=aggregate_player_consensus(analyses),
         captaincy_consensus=aggregate_captaincy(analyses),
         transfer_consensus=aggregate_transfers(analyses),
