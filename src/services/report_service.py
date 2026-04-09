@@ -9,6 +9,7 @@ from src.adapters.storage import build_manifest, create_run_folder, load_json, s
 
 ARTIFACT_FILENAMES = {
     "aggregate_report": "aggregate_report.json",
+    "discovered_videos": "discovered_videos.json",
     "expert_outputs": "expert_outputs.json",
     "final_report": "final_report.json",
     "input_jobs": "input_jobs.json",
@@ -38,12 +39,19 @@ class ReportService:
     def persist_run(
         self,
         *,
+        discovered_videos: list[Any] | None = None,
         input_jobs: list[Any],
         expert_outputs: list[Any],
         aggregate_report: Any,
         final_report: Any,
         failed_jobs: list[Any] | None = None,
         duplicate_sources: list[Any] | None = None,
+        input_mode: str = "youtube_auto",
+        configured_experts: int | None = None,
+        videos_discovered: int | None = None,
+        videos_selected: int | None = None,
+        jobs_created: int | None = None,
+        transcript_failures: list[Any] | None = None,
         run_dir: str | Path | None = None,
     ) -> Path:
         run_path = self._resolve_run_path(run_dir)
@@ -52,6 +60,7 @@ class ReportService:
             for artifact_name, filename in ARTIFACT_FILENAMES.items()
         }
 
+        save_json(artifact_paths["discovered_videos"], discovered_videos or [])
         save_json(artifact_paths["input_jobs"], input_jobs)
         save_json(artifact_paths["expert_outputs"], expert_outputs)
         save_json(artifact_paths["aggregate_report"], aggregate_report)
@@ -65,6 +74,12 @@ class ReportService:
             expert_outputs=expert_outputs,
             failed_jobs=failed_jobs,
             duplicate_sources=duplicate_sources,
+            input_mode=input_mode,
+            configured_experts=configured_experts,
+            videos_discovered=videos_discovered,
+            videos_selected=videos_selected,
+            jobs_created=jobs_created,
+            transcript_failures=transcript_failures,
         )
         save_json(run_path / MANIFEST_FILENAME, manifest)
 
@@ -94,22 +109,36 @@ class ReportService:
 
 def persist_run(
     *,
+    discovered_videos: list[Any] | None = None,
     input_jobs: list[Any],
     expert_outputs: list[Any],
     aggregate_report: Any,
     final_report: Any,
     failed_jobs: list[Any] | None = None,
     duplicate_sources: list[Any] | None = None,
+    input_mode: str = "youtube_auto",
+    configured_experts: int | None = None,
+    videos_discovered: int | None = None,
+    videos_selected: int | None = None,
+    jobs_created: int | None = None,
+    transcript_failures: list[Any] | None = None,
     base_dir: str | Path = "runs",
     run_dir: str | Path | None = None,
 ) -> Path:
     return ReportService(base_dir=base_dir).persist_run(
+        discovered_videos=discovered_videos,
         input_jobs=input_jobs,
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
         final_report=final_report,
         failed_jobs=failed_jobs,
         duplicate_sources=duplicate_sources,
+        input_mode=input_mode,
+        configured_experts=configured_experts,
+        videos_discovered=videos_discovered,
+        videos_selected=videos_selected,
+        jobs_created=jobs_created,
+        transcript_failures=transcript_failures,
         run_dir=run_dir,
     )
 

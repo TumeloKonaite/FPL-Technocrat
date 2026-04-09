@@ -82,6 +82,7 @@ def test_persist_run_creates_unique_run_folders(tmp_path) -> None:
     final_report = _build_final_report()
 
     first_run_path = persist_run(
+        discovered_videos=[],
         input_jobs=input_jobs,
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
@@ -89,6 +90,7 @@ def test_persist_run_creates_unique_run_folders(tmp_path) -> None:
         base_dir=tmp_path / "runs",
     )
     second_run_path = persist_run(
+        discovered_videos=[],
         input_jobs=input_jobs,
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
@@ -107,6 +109,7 @@ def test_report_service_class_persists_runs(tmp_path) -> None:
     service = ReportService(base_dir=tmp_path / "runs")
 
     run_path = service.persist_run(
+        discovered_videos=[],
         input_jobs=[_build_job("Expert A", 5)],
         expert_outputs=[_build_expert_output("Expert A", 5)],
         aggregate_report=_build_aggregate_report(),
@@ -126,6 +129,7 @@ def test_persisted_json_is_stable_and_can_be_reloaded(tmp_path) -> None:
     final_report = _build_final_report()
 
     run_path = persist_run(
+        discovered_videos=[],
         input_jobs=input_jobs,
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
@@ -174,6 +178,15 @@ def test_manifest_is_self_describing_and_points_to_existing_artifacts(tmp_path) 
     final_report = _build_final_report()
 
     run_path = persist_run(
+        discovered_videos=[
+            {
+                "video_id": "video-5",
+                "title": "Expert A GW5",
+                "video_url": "https://youtube.com/watch?v=video-5",
+                "published_at": "2026-04-05T12:00:00Z",
+                "expert_name": "Expert A",
+            }
+        ],
         input_jobs=input_jobs,
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
@@ -185,20 +198,28 @@ def test_manifest_is_self_describing_and_points_to_existing_artifacts(tmp_path) 
 
     assert manifest["run_id"] == run_path.name
     assert manifest["created_at"].endswith("Z")
+    assert manifest["input_mode"] == "youtube_auto"
+    assert manifest["configured_experts"] == 0
+    assert manifest["videos_discovered"] == 2
+    assert manifest["videos_selected"] == 2
+    assert manifest["jobs_created"] == 2
     assert manifest["counts"] == {
         "duplicate_sources": 0,
         "input_jobs": 2,
         "expert_outputs": 2,
         "failed_jobs": 0,
+        "transcript_failures": 0,
     }
     assert manifest["artifacts"] == {
         "aggregate_report": "aggregate_report.json",
+        "discovered_videos": "discovered_videos.json",
         "expert_outputs": "expert_outputs.json",
         "final_report": "final_report.json",
         "input_jobs": "input_jobs.json",
     }
     assert manifest["duplicate_sources"] == []
     assert manifest["failed_jobs"] == []
+    assert manifest["transcript_failures"] == []
 
     for filename in manifest["artifacts"].values():
         assert (run_path / filename).exists()

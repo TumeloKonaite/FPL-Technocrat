@@ -10,7 +10,8 @@ from src.schemas.aggregate_report import DisagreementReport
 from src.schemas.expert_analysis import ExpertVideoAnalysis
 from src.schemas.final_report import AggregatedFPLReport, FinalGameweekReport
 from src.schemas.video_job import VideoAnalysisJob
-from src.services.pipeline_service import PipelineServiceError, load_video_jobs, run_pipeline
+from src.services.pipeline_service import PipelineServiceError, run_pipeline
+from src.services.transcript_ingestion_service import YouTubeIngestionResult
 
 
 def _build_job(*, expert_name: str = "Expert A", gameweek: int = 32) -> VideoAnalysisJob:
@@ -70,22 +71,26 @@ def _build_final_report(gameweek: int = 32) -> FinalGameweekReport:
     )
 
 
-def test_load_video_jobs_rejects_mismatched_gameweek(tmp_path) -> None:
-    input_file = tmp_path / "jobs.json"
-    input_file.write_text(json.dumps([_build_job(gameweek=31).model_dump()]), encoding="utf-8")
-
-    with pytest.raises(PipelineServiceError, match="Input jobs must match the requested gameweek 32"):
-        load_video_jobs(input_file, gameweek=32)
-
-
 def test_run_pipeline_persists_artifacts_to_requested_output_dir(tmp_path) -> None:
     job = _build_job()
     analysis = _build_analysis(job)
     aggregate_report = _build_aggregate_report()
     final_report = _build_final_report()
-    input_file = tmp_path / "jobs.json"
     output_dir = tmp_path / "runs" / "gw32"
-    input_file.write_text(json.dumps([job.model_dump()]), encoding="utf-8")
+    ingestion = YouTubeIngestionResult(
+        configured_experts=5,
+        discovered_videos=[
+            {
+                "video_id": "expert-a",
+                "title": job.video_title,
+                "video_url": job.video_url or "",
+                "published_at": job.published_at,
+                "expert_name": job.expert_name,
+            }
+        ],
+        input_jobs=[job],
+        transcript_failures=[],
+    )
 
     async def fake_orchestration(jobs: list[VideoAnalysisJob]):
         class _Result:
@@ -101,6 +106,9 @@ def test_run_pipeline_persists_artifacts_to_requested_output_dir(tmp_path) -> No
         return _Result()
 
     with patch(
+        "src.services.pipeline_service.ingest_youtube_video_jobs",
+        return_value=ingestion,
+    ), patch(
         "src.services.pipeline_service.run_gameweek_orchestration",
         side_effect=fake_orchestration,
     ), patch(
@@ -113,16 +121,22 @@ def test_run_pipeline_persists_artifacts_to_requested_output_dir(tmp_path) -> No
         result = asyncio.run(
             run_pipeline(
                 gameweek=32,
-                input_file=input_file,
                 output_dir=output_dir,
             )
         )
 
     assert result.run_path == output_dir
+    assert (output_dir / "discovered_videos.json").exists()
     assert (output_dir / "manifest.json").exists()
     assert json.loads((output_dir / "expert_outputs.json").read_text(encoding="utf-8")) == [
         analysis.model_dump()
     ]
+    manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
+    assert manifest["input_mode"] == "youtube_auto"
+    assert manifest["configured_experts"] == 5
+    assert manifest["videos_discovered"] == 1
+    assert manifest["videos_selected"] == 1
+    assert manifest["jobs_created"] == 1
     assert result.duplicate_sources == []
 
 
@@ -131,9 +145,21 @@ def test_run_pipeline_uses_fallback_report_when_synthesis_is_disabled(tmp_path) 
     analysis = _build_analysis(job)
     aggregate_report = _build_aggregate_report()
     fallback_report = _build_final_report()
-    input_file = tmp_path / "jobs.json"
     output_dir = tmp_path / "runs" / "gw32"
-    input_file.write_text(json.dumps([job.model_dump()]), encoding="utf-8")
+    ingestion = YouTubeIngestionResult(
+        configured_experts=5,
+        discovered_videos=[
+            {
+                "video_id": "expert-a",
+                "title": job.video_title,
+                "video_url": job.video_url or "",
+                "published_at": job.published_at,
+                "expert_name": job.expert_name,
+            }
+        ],
+        input_jobs=[job],
+        transcript_failures=[],
+    )
 
     async def fake_orchestration(jobs: list[VideoAnalysisJob]):
         class _Result:
@@ -149,6 +175,9 @@ def test_run_pipeline_uses_fallback_report_when_synthesis_is_disabled(tmp_path) 
         return _Result()
 
     with patch(
+        "src.services.pipeline_service.ingest_youtube_video_jobs",
+        return_value=ingestion,
+    ), patch(
         "src.services.pipeline_service.run_gameweek_orchestration",
         side_effect=fake_orchestration,
     ), patch(
@@ -163,7 +192,6 @@ def test_run_pipeline_uses_fallback_report_when_synthesis_is_disabled(tmp_path) 
         result = asyncio.run(
             run_pipeline(
                 gameweek=32,
-                input_file=input_file,
                 output_dir=output_dir,
                 synthesis_enabled=False,
             )
@@ -172,3 +200,27 @@ def test_run_pipeline_uses_fallback_report_when_synthesis_is_disabled(tmp_path) 
     assert result.final_report == fallback_report
     mocked_fallback.assert_called_once_with(aggregate_report)
     mocked_synthesis.assert_not_called()
+
+
+def test_run_pipeline_raises_readable_error_when_ingestion_builds_no_jobs(tmp_path) -> None:
+    output_dir = tmp_path / "runs" / "gw32"
+    ingestion = YouTubeIngestionResult(
+        configured_experts=5,
+        discovered_videos=[],
+        input_jobs=[],
+        transcript_failures=[{"expert_name": "Expert A", "error": "missing"}],
+    )
+
+    with patch(
+        "src.services.pipeline_service.ingest_youtube_video_jobs",
+        return_value=ingestion,
+    ), pytest.raises(
+        PipelineServiceError,
+        match="Pipeline could not create any usable video analysis jobs from YouTube sources",
+    ):
+        asyncio.run(
+            run_pipeline(
+                gameweek=32,
+                output_dir=output_dir,
+            )
+        )

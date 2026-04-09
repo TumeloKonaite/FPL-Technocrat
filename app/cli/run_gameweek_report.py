@@ -11,20 +11,20 @@ from src.services.pipeline_service import PipelineServiceError, run_pipeline_syn
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="python -m app.main",
-        description="Run the FPL gameweek report pipeline from a JSON job file.",
+        description="Run the automated FPL gameweek report pipeline from YouTube expert sources.",
     )
     parser.add_argument("--gameweek", type=int, required=True, help="Gameweek number to run.")
-    parser.add_argument(
-        "--input-file",
-        type=Path,
-        required=True,
-        help="Path to the JSON file containing video analysis jobs.",
-    )
     parser.add_argument(
         "--output-dir",
         type=Path,
         required=True,
         help="Directory where run artifacts will be written.",
+    )
+    parser.add_argument(
+        "--per-expert-limit",
+        type=int,
+        default=2,
+        help="Maximum number of recent videos to inspect per configured expert channel.",
     )
     parser.add_argument(
         "--no-synthesis",
@@ -40,8 +40,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     try:
         result = run_pipeline_sync(
             gameweek=args.gameweek,
-            input_file=args.input_file,
             output_dir=args.output_dir,
+            per_expert_limit=args.per_expert_limit,
             synthesis_enabled=not args.no_synthesis,
         )
     except PipelineServiceError as exc:
@@ -58,11 +58,18 @@ def main(argv: Sequence[str] | None = None) -> int:
     print(
         "Pipeline completed successfully for "
         f"gameweek {args.gameweek}. "
-        f"Processed {success_count}/{len(result.input_jobs)} job(s); "
+        f"Discovered {len(result.discovered_videos)} video(s), "
+        f"built {len(result.input_jobs)} job(s), "
+        f"processed {success_count}/{len(result.input_jobs)} job(s); "
         f"synthesis {synthesis_label}. "
         f"Artifacts written to {result.run_path}."
     )
     if failure_count:
         print(f"Warning: {failure_count} job(s) failed during orchestration.", file=sys.stderr)
+    if result.transcript_failures:
+        print(
+            f"Warning: {len(result.transcript_failures)} transcript fetch(es) were unusable during ingestion.",
+            file=sys.stderr,
+        )
 
     return 0

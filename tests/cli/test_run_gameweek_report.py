@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 from unittest.mock import patch
 
 from app.cli.run_gameweek_report import build_parser, main
@@ -76,31 +75,41 @@ def test_argument_parsing_supports_required_inputs_and_no_synthesis_flag() -> No
         [
             "--gameweek",
             "32",
-            "--input-file",
-            "data/gameweek_32_jobs.json",
             "--output-dir",
             "runs/gw32",
+            "--per-expert-limit",
+            "3",
             "--no-synthesis",
         ]
     )
 
     assert args.gameweek == 32
-    assert args.input_file == Path("data/gameweek_32_jobs.json")
-    assert args.output_dir == Path("runs/gw32")
+    assert str(args.output_dir) == "runs/gw32"
+    assert args.per_expert_limit == 3
     assert args.no_synthesis is True
 
 
 def test_cli_smoke_test_reports_success_and_passes_expected_arguments(capsys, tmp_path) -> None:
-    input_file = tmp_path / "jobs.json"
     output_dir = tmp_path / "runs" / "gw32"
     result = PipelineRunResult(
         run_path=output_dir,
+        discovered_videos=[
+            {
+                "video_id": "expert-a",
+                "title": "GW32 Preview",
+                "video_url": "https://youtube.com/watch?v=expert-a",
+                "published_at": "2026-04-09T12:00:00Z",
+                "expert_name": "Expert A",
+            }
+        ],
         input_jobs=[_build_job()],
         expert_outputs=[_build_analysis()],
         aggregate_report=_build_aggregate_report(),
         final_report=_build_final_report(),
         failed_jobs=[],
         synthesis_enabled=True,
+        transcript_failures=[],
+        configured_experts=5,
     )
 
     with patch("app.cli.run_gameweek_report.run_pipeline_sync", return_value=result) as mocked_run:
@@ -108,10 +117,10 @@ def test_cli_smoke_test_reports_success_and_passes_expected_arguments(capsys, tm
             [
                 "--gameweek",
                 "32",
-                "--input-file",
-                str(input_file),
                 "--output-dir",
                 str(output_dir),
+                "--per-expert-limit",
+                "4",
             ]
         )
 
@@ -123,20 +132,27 @@ def test_cli_smoke_test_reports_success_and_passes_expected_arguments(capsys, tm
     assert captured.err == ""
     mocked_run.assert_called_once_with(
         gameweek=32,
-        input_file=input_file,
         output_dir=output_dir,
+        per_expert_limit=4,
         synthesis_enabled=True,
     )
 
 
 def test_cli_end_to_end_mocked_pipeline_run_persists_outputs(tmp_path) -> None:
-    input_file = tmp_path / "gameweek_32_jobs.json"
     output_dir = tmp_path / "runs" / "gw32"
     job = _build_job()
-    input_file.write_text(json.dumps([job.model_dump()]), encoding="utf-8")
     analysis = _build_analysis()
     aggregate_report = _build_aggregate_report()
     final_report = _build_final_report()
+    discovered_videos = [
+        {
+            "video_id": "expert-a",
+            "title": job.video_title,
+            "video_url": job.video_url or "",
+            "published_at": job.published_at,
+            "expert_name": job.expert_name,
+        }
+    ]
 
     async def fake_orchestration(jobs: list[VideoAnalysisJob]):
         class _Result:
@@ -152,6 +168,20 @@ def test_cli_end_to_end_mocked_pipeline_run_persists_outputs(tmp_path) -> None:
         return _Result()
 
     with patch(
+        "src.services.pipeline_service.ingest_youtube_video_jobs",
+        return_value=type(
+            "IngestionResult",
+            (),
+            {
+                "configured_experts": 5,
+                "discovered_videos": discovered_videos,
+                "input_jobs": [job],
+                "transcript_failures": [],
+                "videos_discovered": 1,
+                "videos_selected": 1,
+            },
+        )(),
+    ), patch(
         "src.services.pipeline_service.run_gameweek_orchestration",
         side_effect=fake_orchestration,
     ), patch(
@@ -165,14 +195,13 @@ def test_cli_end_to_end_mocked_pipeline_run_persists_outputs(tmp_path) -> None:
             [
                 "--gameweek",
                 "32",
-                "--input-file",
-                str(input_file),
                 "--output-dir",
                 str(output_dir),
             ]
         )
 
     assert exit_code == 0
+    assert (output_dir / "discovered_videos.json").exists()
     assert (output_dir / "input_jobs.json").exists()
     assert (output_dir / "expert_outputs.json").exists()
     assert (output_dir / "aggregate_report.json").exists()
@@ -183,14 +212,14 @@ def test_cli_end_to_end_mocked_pipeline_run_persists_outputs(tmp_path) -> None:
 def test_cli_returns_readable_failure_message(capsys, tmp_path) -> None:
     with patch(
         "app.cli.run_gameweek_report.run_pipeline_sync",
-        side_effect=PipelineServiceError("Input file was not found."),
+        side_effect=PipelineServiceError(
+            "Pipeline could not create any usable video analysis jobs from YouTube sources."
+        ),
     ):
         exit_code = main(
             [
                 "--gameweek",
                 "32",
-                "--input-file",
-                str(tmp_path / "missing.json"),
                 "--output-dir",
                 str(tmp_path / "runs" / "gw32"),
             ]
@@ -200,4 +229,4 @@ def test_cli_returns_readable_failure_message(capsys, tmp_path) -> None:
 
     assert exit_code == 1
     assert captured.out == ""
-    assert captured.err.strip() == "Error: Input file was not found."
+    assert captured.err.strip() == "Error: Pipeline could not create any usable video analysis jobs from YouTube sources."

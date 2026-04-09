@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from src.services.transcript_ingestion_service import build_video_jobs_from_youtube
+from src.services.transcript_ingestion_service import build_video_jobs_from_youtube, ingest_youtube_video_jobs
 
 
 def test_build_video_jobs_from_youtube_skips_missing_error_and_irrelevant_videos(monkeypatch) -> None:
@@ -56,6 +56,53 @@ def test_build_video_jobs_from_youtube_skips_missing_error_and_irrelevant_videos
     assert jobs[0].gameweek == 32
     assert jobs[0].transcript == "FPL GW32 preview transcript"
     assert jobs[0].video_url == "https://youtube.com/watch?v=keep-1"
+
+
+def test_ingest_youtube_video_jobs_returns_discovery_and_failure_metadata(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "src.services.transcript_ingestion_service.get_latest_videos_for_all_experts",
+        lambda limit_per_expert: [
+            {
+                "video_id": "keep-1",
+                "title": "FPL GW32 Preview",
+                "video_url": "https://youtube.com/watch?v=keep-1",
+                "published_at": "2026-04-09T12:00:00Z",
+                "expert_name": "FPL Harry",
+            },
+            {
+                "video_id": "missing-1",
+                "title": "FPL GW32 Team Reveal",
+                "video_url": "https://youtube.com/watch?v=missing-1",
+                "published_at": "2026-04-09T13:00:00Z",
+                "expert_name": "FPL Focal",
+            },
+        ],
+    )
+    monkeypatch.setattr(
+        "src.services.transcript_ingestion_service.get_clean_transcript",
+        lambda video_id: {
+            "keep-1": {"video_id": "keep-1", "transcript": "FPL GW32 preview transcript", "status": "available"},
+            "missing-1": {"video_id": "missing-1", "transcript": "", "status": "missing"},
+        }[video_id],
+    )
+
+    result = ingest_youtube_video_jobs(gameweek=32, per_expert_limit=2)
+
+    assert result.videos_discovered == 2
+    assert result.videos_selected == 1
+    assert result.jobs_created == 1
+    assert len(result.input_jobs) == 1
+    assert len(result.discovered_videos) == 2
+    assert result.transcript_failures == [
+        {
+            "expert_name": "FPL Focal",
+            "video_title": "FPL GW32 Team Reveal",
+            "video_url": "https://youtube.com/watch?v=missing-1",
+            "video_id": "missing-1",
+            "error": "missing",
+            "status": "missing",
+        }
+    ]
 
 
 def test_build_video_jobs_from_youtube_passes_per_expert_limit_to_discovery(monkeypatch) -> None:

@@ -91,19 +91,32 @@ def build_manifest(
     expert_outputs: Sequence[Any],
     failed_jobs: Sequence[Any] | None = None,
     duplicate_sources: Sequence[Any] | None = None,
+    input_mode: str = "youtube_auto",
+    configured_experts: int | None = None,
+    videos_discovered: int | None = None,
+    videos_selected: int | None = None,
+    jobs_created: int | None = None,
+    transcript_failures: Sequence[Any] | None = None,
 ) -> dict[str, Any]:
     return {
         "run_id": run_id,
         "created_at": created_at,
+        "input_mode": input_mode,
+        "configured_experts": configured_experts if configured_experts is not None else 0,
+        "videos_discovered": videos_discovered if videos_discovered is not None else len(input_jobs),
+        "videos_selected": videos_selected if videos_selected is not None else len(input_jobs),
+        "jobs_created": jobs_created if jobs_created is not None else len(input_jobs),
         "artifacts": dict(sorted(artifacts.items())),
         "counts": {
             "expert_outputs": len(expert_outputs),
             "failed_jobs": len(failed_jobs or []),
             "input_jobs": len(input_jobs),
             "duplicate_sources": len(duplicate_sources or []),
+            "transcript_failures": len(transcript_failures or []),
         },
         "duplicate_sources": to_serializable(duplicate_sources or []),
         "failed_jobs": to_serializable(failed_jobs or []),
+        "transcript_failures": to_serializable(transcript_failures or []),
     }
 
 
