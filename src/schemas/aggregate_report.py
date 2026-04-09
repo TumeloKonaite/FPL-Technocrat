@@ -1,35 +1,24 @@
+from __future__ import annotations
+
 from pydantic import BaseModel, Field
-from typing import Optional
 
-class PlayerPick(BaseModel):
+
+class ConsensusItem(BaseModel):
+    item: str
+    mention_count: int = Field(ge=0)
+    average_confidence: float = Field(ge=0, le=1)
+    supporting_experts: list[str]
+
+
+class TransferConsensusItem(BaseModel):
     player_name: str
-    team: Optional[str] = None
-    category: str
-    reason: str
-    confidence: float = Field(ge=0, le=1)
+    direction: str
+    mention_count: int = Field(ge=0)
+    average_confidence: float = Field(ge=0, le=1)
+    supporting_experts: list[str]
 
-class TransferMove(BaseModel):
-    move_out: Optional[str] = None
-    move_in: Optional[str] = None
-    horizon: str
-    reason: str
-    confidence: float = Field(ge=0, le=1)
 
-class CaptainChoice(BaseModel):
-    player_name: str
-    rank: int
-    reason: str
-    confidence: float = Field(ge=0, le=1)
-
-class ExpertVideoAnalysis(BaseModel):
-    expert_name: str
-    video_title: str
-    gameweek: int
-    strategy_summary: list[str]
-    fixture_insights: list[str]
-    player_picks: list[PlayerPick]
-    transfer_plan: list[TransferMove]
-    captaincy: list[CaptainChoice]
-    chip_strategy: list[str]
-    risks: list[str]
-    final_takeaways: list[str]
+class FixtureInsightConsensusItem(BaseModel):
+    insight: str
+    mention_count: int = Field(ge=0)
+    supporting_experts: list[str]
