@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from src.adapters.youtube import YouTubeTranscriptFetchError, fetch_youtube_transcript
-
 
 class TranscriptFetchError(RuntimeError):
     """Raised when transcript retrieval fails."""
@@ -10,6 +8,15 @@ class TranscriptFetchError(RuntimeError):
 def fetch_transcript(video_id: str) -> str:
     """Fetch a raw transcript string from the configured transcript source."""
     try:
-        return fetch_youtube_transcript(video_id)
-    except YouTubeTranscriptFetchError as exc:
-        raise TranscriptFetchError(str(exc)) from exc
+        from youtube_transcript_api import YouTubeTranscriptApi
+
+        transcript = YouTubeTranscriptApi().fetch(video_id)
+        combined_transcript = " ".join(
+            " ".join(snippet.text.split())
+            for snippet in transcript.snippets
+        )
+        return combined_transcript.strip()
+    except Exception as exc:
+        raise TranscriptFetchError(
+            f"Could not fetch transcript for video '{video_id}': {exc}"
+        ) from exc
