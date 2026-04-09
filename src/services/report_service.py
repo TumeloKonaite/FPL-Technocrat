@@ -42,6 +42,8 @@ class ReportService:
         expert_outputs: list[Any],
         aggregate_report: Any,
         final_report: Any,
+        failed_jobs: list[Any] | None = None,
+        duplicate_sources: list[Any] | None = None,
         run_dir: str | Path | None = None,
     ) -> Path:
         run_path = self._resolve_run_path(run_dir)
@@ -61,6 +63,8 @@ class ReportService:
             artifacts=ARTIFACT_FILENAMES,
             input_jobs=input_jobs,
             expert_outputs=expert_outputs,
+            failed_jobs=failed_jobs,
+            duplicate_sources=duplicate_sources,
         )
         save_json(run_path / MANIFEST_FILENAME, manifest)
 
@@ -94,6 +98,8 @@ def persist_run(
     expert_outputs: list[Any],
     aggregate_report: Any,
     final_report: Any,
+    failed_jobs: list[Any] | None = None,
+    duplicate_sources: list[Any] | None = None,
     base_dir: str | Path = "runs",
     run_dir: str | Path | None = None,
 ) -> Path:
@@ -102,6 +108,8 @@ def persist_run(
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
         final_report=final_report,
+        failed_jobs=failed_jobs,
+        duplicate_sources=duplicate_sources,
         run_dir=run_dir,
     )
 

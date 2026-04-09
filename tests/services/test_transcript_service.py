@@ -2,6 +2,7 @@ from pathlib import Path
 
 from src.services.transcript_service import get_clean_transcript
 from src.utils.text_cleaning import clean_transcript
+from src.adapters.transcript_api import TranscriptFetchError
 
 
 def test_clean_transcript_normalizes_whitespace() -> None:
@@ -41,3 +42,17 @@ def test_get_clean_transcript_returns_missing_payload(monkeypatch) -> None:
         "transcript": "",
         "status": "missing",
     }
+
+
+def test_get_clean_transcript_returns_error_payload_when_fetch_retries_exhausted(monkeypatch) -> None:
+    monkeypatch.setattr(
+        "src.services.transcript_service.fetch_transcript",
+        lambda video_id: (_ for _ in ()).throw(TranscriptFetchError(f"provider unavailable for {video_id}")),
+    )
+
+    payload = get_clean_transcript("broken-video")
+
+    assert payload["video_id"] == "broken-video"
+    assert payload["transcript"] == ""
+    assert payload["status"] == "error"
+    assert "failed after 3 attempt(s)" in payload["error"]

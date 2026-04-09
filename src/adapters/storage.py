@@ -89,6 +89,8 @@ def build_manifest(
     artifacts: Mapping[str, str],
     input_jobs: Sequence[Any],
     expert_outputs: Sequence[Any],
+    failed_jobs: Sequence[Any] | None = None,
+    duplicate_sources: Sequence[Any] | None = None,
 ) -> dict[str, Any]:
     return {
         "run_id": run_id,
@@ -96,8 +98,12 @@ def build_manifest(
         "artifacts": dict(sorted(artifacts.items())),
         "counts": {
             "expert_outputs": len(expert_outputs),
+            "failed_jobs": len(failed_jobs or []),
             "input_jobs": len(input_jobs),
+            "duplicate_sources": len(duplicate_sources or []),
         },
+        "duplicate_sources": to_serializable(duplicate_sources or []),
+        "failed_jobs": to_serializable(failed_jobs or []),
     }
 
 

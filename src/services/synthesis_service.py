@@ -29,12 +29,30 @@ def _build_empty_final_report(report: AggregatedFPLReport) -> FinalGameweekRepor
 
 def build_fallback_final_report(report: AggregatedFPLReport) -> FinalGameweekReport:
     """Build a safe report when synthesis is unavailable or malformed."""
-    overview = (
-        f"Aggregated input from {report.expert_count} expert sources highlights the strongest consensus plays, "
-        "while preserving areas of uncertainty."
-        if report.expert_count
-        else "There is not enough aggregated expert data yet to produce a confident final report."
-    )
+    if not report.expert_count:
+        overview = "There is not enough aggregated expert data yet to produce a confident final report."
+    else:
+        available_sections = [
+            label
+            for label, items in (
+                ("transfers", report.transfer_consensus),
+                ("captaincy", report.captaincy_consensus),
+                ("chip strategy", report.chip_strategy_consensus),
+                ("fixture notes", report.fixture_insights),
+            )
+            if items
+        ]
+        if available_sections:
+            overview = (
+                f"Aggregated input from {report.expert_count} expert sources produced usable signals for "
+                + ", ".join(available_sections[:-1] + [available_sections[-1]])
+                + ", while preserving areas of uncertainty."
+            )
+        else:
+            overview = (
+                f"Aggregated input from {report.expert_count} expert sources was sparse, so this fallback report "
+                "focuses on uncertainty, conditional advice, and what still needs monitoring."
+            )
 
     transfers = [
         FinalRecommendation(
@@ -83,6 +101,16 @@ def build_fallback_final_report(report: AggregatedFPLReport) -> FinalGameweekRep
         for item in report.disagreements.players
     ]
 
+    conclusion_parts: list[str] = []
+    if transfers or captaincy or chip_strategy:
+        conclusion_parts.append("Use the strongest consensus signals that are actually supported this week.")
+    else:
+        conclusion_parts.append("No strong consensus emerged from the structured input this week.")
+    if report.wait_for_news:
+        conclusion_parts.append("Monitor late team news before the deadline.")
+    else:
+        conclusion_parts.append("Stay flexible and avoid forcing marginal moves.")
+
     return FinalGameweekReport(
         gameweek=report.gameweek,
         overview=overview,
@@ -93,7 +121,7 @@ def build_fallback_final_report(report: AggregatedFPLReport) -> FinalGameweekRep
         disagreements=disagreements,
         conditional_advice=[item.text for item in report.conditional_advice[:3]],
         wait_for_news=report.wait_for_news,
-        conclusion="Use the strongest consensus signals and monitor late team news before the deadline.",
+        conclusion=" ".join(conclusion_parts),
     )
 
 
