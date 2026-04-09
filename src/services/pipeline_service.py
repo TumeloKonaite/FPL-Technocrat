@@ -1,13 +1,8 @@
 from __future__ import annotations
 
 import asyncio
-import json
 from dataclasses import dataclass, field
 from pathlib import Path
-
-from pydantic import ValidationError
-
-from src.adapters.storage import load_json
 from src.orchestrators.gameweek_orchestrator import run_gameweek_orchestration
 from src.schemas.expert_analysis import ExpertVideoAnalysis
 from src.schemas.final_report import AggregatedFPLReport, FinalGameweekReport
@@ -16,6 +11,7 @@ from src.services.aggregation_service import build_aggregated_fpl_report, dedupe
 from src.services.normalization import build_video_job_identity
 from src.services.report_service import ReportService
 from src.services.synthesis_service import build_fallback_final_report, synthesize_final_report
+from src.services.transcript_ingestion_service import YouTubeIngestionResult, ingest_youtube_video_jobs
 
 
 class PipelineServiceError(Exception):
@@ -25,6 +21,7 @@ class PipelineServiceError(Exception):
 @dataclass(slots=True)
 class PipelineRunResult:
     run_path: Path
+    discovered_videos: list[dict[str, str]]
     input_jobs: list[VideoAnalysisJob]
     expert_outputs: list[ExpertVideoAnalysis]
     aggregate_report: AggregatedFPLReport
@@ -32,41 +29,8 @@ class PipelineRunResult:
     failed_jobs: list[tuple[VideoAnalysisJob, str]]
     synthesis_enabled: bool = True
     duplicate_sources: list[dict[str, str]] = field(default_factory=list)
-
-
-def _read_jobs_payload(input_file: str | Path) -> list[object]:
-    try:
-        payload = load_json(input_file)
-    except FileNotFoundError as exc:
-        raise PipelineServiceError(f"Input file was not found: {input_file}") from exc
-    except json.JSONDecodeError as exc:
-        raise PipelineServiceError(f"Input file is not valid JSON: {input_file}") from exc
-
-    if not isinstance(payload, list):
-        raise PipelineServiceError("Input file must contain a JSON array of video analysis jobs.")
-    return payload
-
-
-def load_video_jobs(input_file: str | Path, *, gameweek: int) -> list[VideoAnalysisJob]:
-    try:
-        jobs = [
-            VideoAnalysisJob.model_validate(item)
-            for item in _read_jobs_payload(input_file)
-        ]
-    except ValidationError as exc:
-        raise PipelineServiceError(f"Input file contains an invalid video job: {exc}") from exc
-
-    if not jobs:
-        raise PipelineServiceError("Input file does not contain any video analysis jobs.")
-
-    mismatched_jobs = [job.expert_name for job in jobs if job.gameweek != gameweek]
-    if mismatched_jobs:
-        raise PipelineServiceError(
-            "Input jobs must match the requested gameweek "
-            f"{gameweek}. Mismatched jobs: {', '.join(mismatched_jobs)}."
-        )
-
-    return jobs
+    transcript_failures: list[dict[str, str]] = field(default_factory=list)
+    configured_experts: int = 0
 
 
 def dedupe_video_jobs(
@@ -101,12 +65,26 @@ def dedupe_video_jobs(
 async def run_pipeline(
     *,
     gameweek: int,
-    input_file: str | Path,
     output_dir: str | Path,
+    per_expert_limit: int = 2,
     synthesis_enabled: bool = True,
     report_service: ReportService | None = None,
 ) -> PipelineRunResult:
-    loaded_jobs = load_video_jobs(input_file, gameweek=gameweek)
+    ingestion: YouTubeIngestionResult = ingest_youtube_video_jobs(
+        gameweek=gameweek,
+        per_expert_limit=per_expert_limit,
+    )
+    loaded_jobs = ingestion.input_jobs
+    if not loaded_jobs:
+        failure_details = "; ".join(
+            f"{item.get('expert_name', 'Unknown expert')}: {item.get('error', 'unknown transcript failure')}"
+            for item in ingestion.transcript_failures
+        )
+        raise PipelineServiceError(
+            "Pipeline could not create any usable video analysis jobs from YouTube sources."
+            + (f" Transcript failures: {failure_details}." if failure_details else "")
+        )
+
     jobs, duplicate_sources = dedupe_video_jobs(loaded_jobs)
     orchestration = await run_gameweek_orchestration(jobs)
 
@@ -139,6 +117,7 @@ async def run_pipeline(
     )
 
     run_path = (report_service or ReportService()).persist_run(
+        discovered_videos=ingestion.discovered_videos,
         input_jobs=loaded_jobs,
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
@@ -148,11 +127,18 @@ async def run_pipeline(
             for job, error in failed_jobs
         ],
         duplicate_sources=duplicate_sources,
+        input_mode="youtube_auto",
+        configured_experts=ingestion.configured_experts,
+        videos_discovered=ingestion.videos_discovered,
+        videos_selected=ingestion.videos_selected,
+        jobs_created=len(loaded_jobs),
+        transcript_failures=ingestion.transcript_failures,
         run_dir=output_dir,
     )
 
     return PipelineRunResult(
         run_path=run_path,
+        discovered_videos=ingestion.discovered_videos,
         input_jobs=loaded_jobs,
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
@@ -160,22 +146,24 @@ async def run_pipeline(
         failed_jobs=failed_jobs,
         duplicate_sources=duplicate_sources,
         synthesis_enabled=synthesis_enabled,
+        transcript_failures=ingestion.transcript_failures,
+        configured_experts=ingestion.configured_experts,
     )
 
 
 def run_pipeline_sync(
     *,
     gameweek: int,
-    input_file: str | Path,
     output_dir: str | Path,
+    per_expert_limit: int = 2,
     synthesis_enabled: bool = True,
     report_service: ReportService | None = None,
 ) -> PipelineRunResult:
     return asyncio.run(
         run_pipeline(
             gameweek=gameweek,
-            input_file=input_file,
             output_dir=output_dir,
+            per_expert_limit=per_expert_limit,
             synthesis_enabled=synthesis_enabled,
             report_service=report_service,
         )

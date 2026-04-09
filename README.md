@@ -1,12 +1,13 @@
 # FPL-Technocrat
 
-FPL-Technocrat turns a set of expert video transcripts into a structured Fantasy Premier League gameweek report. The pipeline validates input jobs, analyzes each transcript, aggregates consensus across experts, writes run artifacts to disk, and optionally produces a polished final synthesis.
+FPL-Technocrat runs a YouTube-first automated weekly workflow for Fantasy Premier League reporting. It discovers recent videos from configured expert channels, filters the relevant ones, fetches transcripts, builds validated analysis jobs, aggregates consensus across experts, and writes a complete run folder to disk.
 
 ## Purpose
 
 Use this project when you want a repeatable weekly workflow for:
 
-- collecting expert transcript inputs for one gameweek
+- discovering the latest videos from trusted FPL experts
+- filtering and ingesting usable transcript inputs for one gameweek
 - extracting structured picks from each source
 - aggregating consensus, disagreements, and conditional advice
 - saving a run folder another contributor can inspect later
@@ -32,45 +33,66 @@ Typical setup includes:
 
 If you only want deterministic aggregation and artifact generation, you can run with `--no-synthesis` and avoid the final synthesis call.
 
-## Input Format
+## Automated Flow
 
-The CLI expects a JSON array of jobs matching [`src/schemas/video_job.py`](/home/l/projects/fpl_agent/src/schemas/video_job.py). Each item needs:
+Each run follows the same pipeline:
 
-- `expert_name`
-- `video_title`
-- `published_at`
-- `gameweek`
-- `transcript`
-- optional `video_url`
-
-A ready-to-run example lives at [`examples/example_gameweek_input.json`](/home/l/projects/fpl_agent/examples/example_gameweek_input.json).
+```text
+Configured expert channels
+    ↓
+Discover latest videos
+    ↓
+Filter relevant videos
+    ↓
+Fetch transcripts
+    ↓
+Build VideoAnalysisJobs
+    ↓
+Run expert analysis
+    ↓
+Aggregate consensus/disagreements
+    ↓
+Write artifacts + final report
+```
 
 ## Run The CLI
 
 ```bash
 uv run python -m app.main \
   --gameweek 32 \
-  --input-file examples/example_gameweek_input.json \
   --output-dir runs/gw32-example \
+  --per-expert-limit 2 \
   --no-synthesis
 ```
 
-To enable final synthesis, drop `--no-synthesis`.
+To enable final synthesis, drop `--no-synthesis`. The default per-expert discovery limit is `2`.
 
 ## Outputs
 
 Each run writes a folder under the requested output path with these artifacts:
 
-- `input_jobs.json`: the original requested jobs
+- `discovered_videos.json`: normalized latest-video metadata collected from configured channels
+- `input_jobs.json`: validated jobs built from relevant videos with usable transcripts
 - `expert_outputs.json`: structured output for successfully analyzed jobs
 - `aggregate_report.json`: deterministic consensus and disagreement data
 - `final_report.json`: final weekly report, either synthesized or fallback
-- `manifest.json`: artifact map, counts, duplicate-source decisions, and failed jobs
+- `manifest.json`: artifact map plus ingestion, dedupe, transcript, and orchestration counts/failures
+
+The manifest records fields such as:
+
+- `input_mode`
+- `configured_experts`
+- `videos_discovered`
+- `videos_selected`
+- `jobs_created`
+- `transcript_failures`
+- `failed_jobs`
 
 ## Weekly Workflow Notes
 
 - Duplicate video URLs are deduplicated before orchestration.
 - If no URL is available, duplicate transcript content from the same expert is deduplicated conservatively.
+- Transcript failures are recorded in `manifest.json` and do not block a run if at least one usable job is created.
 - Aggregation merges player aliases conservatively, so under-merging is preferred over a risky false merge.
 - Empty sections stay valid and readable; missing captaincy, chip, transfer, or fixture sections do not crash the pipeline.
 - Partial failures are preserved in `manifest.json` and do not block a run if at least one expert analysis succeeds.
@@ -86,6 +108,7 @@ uv run pytest
 Useful focused runs:
 
 ```bash
+uv run pytest tests/services/test_transcript_ingestion_service.py
 uv run pytest tests/services/test_normalization.py
 uv run pytest tests/services/test_edge_cases.py
 uv run pytest tests/services/test_partial_failures.py
@@ -93,8 +116,7 @@ uv run pytest tests/services/test_partial_failures.py
 
 ## Troubleshooting
 
-- `Input file was not found`: check the `--input-file` path.
-- `Input jobs must match the requested gameweek`: the CLI `--gameweek` must match every job in the JSON input.
+- `Pipeline could not create any usable video analysis jobs from YouTube sources`: discovery returned no relevant videos or no transcript could be used.
 - `Pipeline did not produce any expert analyses`: every job either failed or produced an unusable transcript.
 - Transcript fetch errors: transient provider failures are retried with bounded backoff; exhausted retries are returned as readable errors.
 - Empty report sections: this is expected when transcripts do not mention captaincy, chips, transfers, or fixture notes clearly enough.
@@ -103,6 +125,7 @@ uv run pytest tests/services/test_partial_failures.py
 
 - CLI entry: [`app/cli/run_gameweek_report.py`](/home/l/projects/fpl_agent/app/cli/run_gameweek_report.py)
 - Pipeline orchestration: [`src/services/pipeline_service.py`](/home/l/projects/fpl_agent/src/services/pipeline_service.py)
+- YouTube ingestion: [`src/services/transcript_ingestion_service.py`](/home/l/projects/fpl_agent/src/services/transcript_ingestion_service.py)
 - Aggregation and consensus: [`src/services/aggregation_service.py`](/home/l/projects/fpl_agent/src/services/aggregation_service.py)
 - Normalization rules: [`src/services/normalization.py`](/home/l/projects/fpl_agent/src/services/normalization.py)
 - Final synthesis fallback: [`src/services/synthesis_service.py`](/home/l/projects/fpl_agent/src/services/synthesis_service.py)

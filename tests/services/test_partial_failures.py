@@ -9,6 +9,7 @@ from src.schemas.expert_analysis import ExpertVideoAnalysis
 from src.schemas.video_job import VideoAnalysisJob
 from src.services.pipeline_service import run_pipeline
 from src.services.transcript_service import get_clean_transcript
+from src.services.transcript_ingestion_service import YouTubeIngestionResult
 
 
 def _build_job(expert_name: str, *, url: str, transcript: str = "Useful transcript body") -> VideoAnalysisJob:
@@ -60,9 +61,22 @@ def test_run_pipeline_skips_duplicate_jobs_and_preserves_partial_failures(tmp_pa
         _build_job("Expert A Mirror", url="https://youtu.be/dup123"),
         _build_job("Expert B", url="https://youtube.com/watch?v=unique456"),
     ]
-    input_file = tmp_path / "jobs.json"
     output_dir = tmp_path / "runs" / "gw32"
-    input_file.write_text(json.dumps([job.model_dump() for job in jobs]), encoding="utf-8")
+    ingestion = YouTubeIngestionResult(
+        configured_experts=5,
+        discovered_videos=[
+            {
+                "video_id": f"video-{index}",
+                "title": job.video_title,
+                "video_url": job.video_url or "",
+                "published_at": job.published_at,
+                "expert_name": job.expert_name,
+            }
+            for index, job in enumerate(jobs, start=1)
+        ],
+        input_jobs=jobs,
+        transcript_failures=[{"expert_name": "Expert C", "error": "missing"}],
+    )
 
     async def fake_orchestration(queued_jobs: list[VideoAnalysisJob]):
         assert len(queued_jobs) == 2
@@ -84,11 +98,13 @@ def test_run_pipeline_skips_duplicate_jobs_and_preserves_partial_failures(tmp_pa
 
         return _Result()
 
-    with patch("src.services.pipeline_service.run_gameweek_orchestration", side_effect=fake_orchestration):
+    with patch(
+        "src.services.pipeline_service.ingest_youtube_video_jobs",
+        return_value=ingestion,
+    ), patch("src.services.pipeline_service.run_gameweek_orchestration", side_effect=fake_orchestration):
         result = asyncio.run(
             run_pipeline(
                 gameweek=32,
-                input_file=input_file,
                 output_dir=output_dir,
                 synthesis_enabled=False,
             )
@@ -101,3 +117,4 @@ def test_run_pipeline_skips_duplicate_jobs_and_preserves_partial_failures(tmp_pa
     manifest = json.loads((output_dir / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["counts"]["duplicate_sources"] == 1
     assert manifest["counts"]["failed_jobs"] == 1
+    assert manifest["counts"]["transcript_failures"] == 1
