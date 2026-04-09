@@ -7,6 +7,11 @@ from src.schemas.aggregate_report import (
 )
 from src.schemas.expert_analysis import ExpertVideoAnalysis
 from src.schemas.final_report import AggregatedFPLReport
+from src.services.disagreement_service import (
+    build_disagreement_report,
+    extract_conditional_advice,
+    extract_wait_for_news_entities,
+)
 from src.services.normalization import (
     canonical_chip_display,
     canonical_player_display,
@@ -247,7 +252,12 @@ def build_aggregated_fpl_report(
             transfer_consensus=[],
             fixture_insights=[],
             chip_strategy_consensus=[],
+            disagreements=build_disagreement_report([]),
+            conditional_advice=[],
+            wait_for_news=[],
         )
+
+    conditional_advice = extract_conditional_advice(analyses)
 
     return AggregatedFPLReport(
         gameweek=analyses[0].gameweek,
@@ -257,4 +267,7 @@ def build_aggregated_fpl_report(
         transfer_consensus=aggregate_transfers(analyses),
         fixture_insights=aggregate_fixture_insights(analyses),
         chip_strategy_consensus=aggregate_chip_strategy(analyses),
+        disagreements=build_disagreement_report(analyses),
+        conditional_advice=conditional_advice,
+        wait_for_news=extract_wait_for_news_entities(conditional_advice),
     )
