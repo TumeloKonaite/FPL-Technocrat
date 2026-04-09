@@ -97,6 +97,9 @@ def test_aggregated_report_is_schema_valid_for_empty_input() -> None:
     assert validated.player_consensus == []
     assert validated.transfer_consensus == []
     assert validated.fixture_insights == []
+    assert validated.disagreements.players == []
+    assert validated.conditional_advice == []
+    assert validated.wait_for_news == []
 
 
 def test_transfer_and_fixture_aggregation_are_deterministic() -> None:
@@ -128,3 +131,36 @@ def test_transfer_and_fixture_aggregation_are_deterministic() -> None:
     assert [item.direction for item in report.transfer_consensus] == ["buy", "sell"]
     assert report.fixture_insights[0].insight == "Arsenal have a strong fixture run"
     assert report.fixture_insights[0].mention_count == 2
+
+
+def test_aggregated_report_includes_disagreements_and_conditional_advice() -> None:
+    analyses = [
+        _build_analysis(
+            "Expert A",
+            recommended_players=["Saka"],
+            captaincy_picks=["Salah"],
+            reasoning=["Wait for press conference news on Saka", "I would roll the transfer"],
+            confidence="high",
+        ),
+        _build_analysis(
+            "Expert B",
+            avoid_players=["Bukayo Saka"],
+            captaincy_picks=["Haaland"],
+            reasoning=["I would buy now before the deadline"],
+            confidence="medium",
+        ),
+    ]
+
+    report = build_aggregated_fpl_report(analyses)
+
+    assert report.disagreements.players[0].player == "Bukayo Saka"
+    assert report.disagreements.captaincy[0].options == [
+        "Erling Haaland",
+        "Mohamed Salah",
+    ]
+    assert report.disagreements.captaincy[0].expert_map["Erling Haaland"] == ["Expert B"]
+    assert report.disagreements.captaincy[0].expert_map["Mohamed Salah"] == ["Expert A"]
+    assert report.disagreements.strategy[0].side_a == "roll"
+    assert report.disagreements.strategy[0].side_b == "buy_now"
+    assert report.conditional_advice[0].reason == "press_conference"
+    assert report.wait_for_news == ["Bukayo Saka"]

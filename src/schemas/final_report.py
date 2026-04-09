@@ -4,6 +4,8 @@ from pydantic import BaseModel, Field
 
 from src.schemas.aggregate_report import (
     ConsensusItem,
+    ConditionalAdviceItem,
+    DisagreementReport,
     FixtureInsightConsensusItem,
     TransferConsensusItem,
 )
@@ -17,3 +19,6 @@ class AggregatedFPLReport(BaseModel):
     transfer_consensus: list[TransferConsensusItem]
     fixture_insights: list[FixtureInsightConsensusItem]
     chip_strategy_consensus: list[ConsensusItem]
+    disagreements: DisagreementReport
+    conditional_advice: list[ConditionalAdviceItem]
+    wait_for_news: list[str]
