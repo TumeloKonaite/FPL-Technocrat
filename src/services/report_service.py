@@ -27,6 +27,14 @@ class ReportService:
     def __init__(self, base_dir: str | Path = "runs") -> None:
         self.base_dir = Path(base_dir)
 
+    def _resolve_run_path(self, run_dir: str | Path | None = None) -> Path:
+        if run_dir is None:
+            return create_run_folder(base_dir=self.base_dir)
+
+        run_path = Path(run_dir)
+        run_path.mkdir(parents=True, exist_ok=True)
+        return run_path
+
     def persist_run(
         self,
         *,
@@ -34,8 +42,9 @@ class ReportService:
         expert_outputs: list[Any],
         aggregate_report: Any,
         final_report: Any,
+        run_dir: str | Path | None = None,
     ) -> Path:
-        run_path = create_run_folder(base_dir=self.base_dir)
+        run_path = self._resolve_run_path(run_dir)
         artifact_paths = {
             artifact_name: run_path / filename
             for artifact_name, filename in ARTIFACT_FILENAMES.items()
@@ -86,12 +95,14 @@ def persist_run(
     aggregate_report: Any,
     final_report: Any,
     base_dir: str | Path = "runs",
+    run_dir: str | Path | None = None,
 ) -> Path:
     return ReportService(base_dir=base_dir).persist_run(
         input_jobs=input_jobs,
         expert_outputs=expert_outputs,
         aggregate_report=aggregate_report,
         final_report=final_report,
+        run_dir=run_dir,
     )
 
 
