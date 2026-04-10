@@ -4,6 +4,7 @@ from src.agents.final_synthesis_agent import run_final_synthesis
 from src.schemas.final_report import (
     AggregatedFPLReport,
     FinalDisagreement,
+    FinalExpertTeamReveal,
     FinalGameweekReport,
     FinalRecommendation,
 )
@@ -23,6 +24,7 @@ def _build_empty_final_report(report: AggregatedFPLReport) -> FinalGameweekRepor
         disagreements=[],
         conditional_advice=[],
         wait_for_news=[],
+        expert_team_reveals=[],
         conclusion="Wait for more expert input before making aggressive moves.",
     )
 
@@ -100,6 +102,18 @@ def build_fallback_final_report(report: AggregatedFPLReport) -> FinalGameweekRep
         )
         for item in report.disagreements.players
     ]
+    expert_team_reveals = [
+        FinalExpertTeamReveal(
+            expert_name=item.expert_name,
+            summary=_build_team_reveal_summary(item),
+            captain=item.captain,
+            vice_captain=item.vice_captain,
+            transfers_in=item.transfers_in,
+            transfers_out=item.transfers_out,
+            confidence=item.confidence,
+        )
+        for item in report.expert_team_reveals[:3]
+    ]
 
     conclusion_parts: list[str] = []
     if transfers or captaincy or chip_strategy:
@@ -121,8 +135,32 @@ def build_fallback_final_report(report: AggregatedFPLReport) -> FinalGameweekRep
         disagreements=disagreements,
         conditional_advice=[item.text for item in report.conditional_advice[:3]],
         wait_for_news=report.wait_for_news,
+        expert_team_reveals=expert_team_reveals,
         conclusion=" ".join(conclusion_parts),
     )
+
+
+def _build_team_reveal_summary(item) -> str:
+    summary_parts: list[str] = []
+    if item.transfers_in or item.transfers_out:
+        moves: list[str] = []
+        if item.transfers_in:
+            moves.append("in: " + ", ".join(item.transfers_in))
+        if item.transfers_out:
+            moves.append("out: " + ", ".join(item.transfers_out))
+        summary_parts.append("Moves " + "; ".join(moves))
+    if item.captain:
+        captain_text = f"Captain {item.captain}"
+        if item.vice_captain:
+            captain_text += f", vice {item.vice_captain}"
+        summary_parts.append(captain_text)
+    if item.starting_xi:
+        summary_parts.append("Starting XI core: " + ", ".join(item.starting_xi[:5]))
+    elif item.current_team:
+        summary_parts.append("Draft core: " + ", ".join(item.current_team[:5]))
+    elif item.bench:
+        summary_parts.append("Bench includes " + ", ".join(item.bench[:3]))
+    return ". ".join(summary_parts) or "Expert discussed a draft team for the week."
 
 
 async def synthesize_final_report(report: AggregatedFPLReport) -> FinalGameweekReport:

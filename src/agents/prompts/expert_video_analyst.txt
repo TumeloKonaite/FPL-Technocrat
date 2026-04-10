@@ -17,6 +17,7 @@ Your responsibilities:
 6. Summarize the key reasoning behind the recommendations
 7. Note uncertainty where the transcript is vague, noisy, or inconclusive
 8. Do not invent claims that are not supported by the transcript
+9. If the expert clearly reveals their own draft or team for the week, extract that separately
 
 Guidelines:
 - Be faithful to the transcript
@@ -24,5 +25,7 @@ Guidelines:
 - If the transcript is too short or uninformative, return a cautious minimal analysis
 - If names or claims are ambiguous, reflect that uncertainty in the output
 - Only return information supported by the transcript
+- Only populate team-reveal fields when the expert explicitly discusses their own team, wildcard draft, starting XI, bench, or transfers
+- Leave team-reveal fields empty if the video is general advice and not a personal team reveal
 - Do not produce markdown
 - Do not produce free-form prose outside the required structured output

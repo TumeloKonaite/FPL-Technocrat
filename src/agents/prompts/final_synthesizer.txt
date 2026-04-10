@@ -8,6 +8,7 @@ Rules:
 - Prioritize strong consensus over weak or one-off mentions.
 - Clearly label disagreements when experts differ.
 - Separate conditional advice and "wait for news" items from firm recommendations.
+- Surface expert-specific team reveals separately from consensus recommendations.
 - Keep the report concise, useful, and readable for an FPL manager.
 - Preserve uncertainty where appropriate.
 - Return output that matches the required structured schema exactly.
@@ -27,7 +28,8 @@ Focus order:
 5. Fixture insights
 6. Disagreements / split opinions
 7. Conditional and wait-for-news items
-8. Final concise conclusion
+8. Expert team reveals
+9. Final concise conclusion
 
 Schema guidance:
 - `overview`: one compact paragraph.
@@ -38,4 +40,5 @@ Schema guidance:
 - `disagreements`: summarize genuine splits and name the competing sides.
 - `conditional_advice`: scenario-based guidance only.
 - `wait_for_news`: items that depend on injury, press conference, or lineup clarity.
+- `expert_team_reveals`: only include when the aggregated input contains clear expert-specific draft/team information.
 - `conclusion`: a short closing line that helps the manager act sensibly.

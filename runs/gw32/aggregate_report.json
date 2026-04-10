@@ -2,7 +2,16 @@
   "captaincy_consensus": [
     {
       "average_confidence": 1.0,
-      "item": "Anthony Gordon",
+      "item": "Thiago",
+      "mention_count": 2,
+      "supporting_experts": [
+        "FPL Harry",
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Anthony Gordon Matteas Kuna Salah Differentials",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -10,15 +19,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Bowen West Ham Friday Fixture Differential",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Bruno Fernandes",
+      "item": "Bruno Fernandes Clear First Choice",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
@@ -26,7 +27,15 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Bruno Fernandes Manchester United Overwhelming Favorite 98",
+      "item": "Bruno Fernandes Main Recommendation",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Bruno Fernandes Manchester United Overwhelming Favorite",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
@@ -34,15 +43,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Bruno Fernandes Top Pick",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Bruno Man Utd",
+      "item": "Bruno Fernandes Mun Primary",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -50,7 +51,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Danny Welbeck",
+      "item": "Danny Welbeck Differential",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -58,7 +59,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Erling Haaland",
+      "item": "Erling Haaland Decent But Not Preferred",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -66,15 +67,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Haaland Man City",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Haaland Manchester City Only 2",
+      "item": "Erling Haaland Manchester City Low Support",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
@@ -82,31 +75,15 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Jared Bowen",
+      "item": "Erling Haaland Mci High Upside",
       "mention_count": 1,
       "supporting_experts": [
-        "FPL Raptor"
+        "FPL Harry"
       ]
     },
     {
       "average_confidence": 1.0,
-      "item": "Matteas Cunha",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Mohamed Salah Minutes Risk",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Not Explicitly Stated Likely Default Is Haaland If Fit",
+      "item": "Harland Implied As Key Striker Likely Captain Given No Alternate Captaincy Discussion",
       "mention_count": 1,
       "supporting_experts": [
         "Let's Talk FPL"
@@ -114,7 +91,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Salah Liverpool If Minutes Starting Likely",
+      "item": "Jared Bowen Differential",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -122,7 +99,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Thiago",
+      "item": "Jared Bowen Vice Or Differential",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -130,7 +107,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Thiago Liverpool",
+      "item": "Salah Only If Confident In Minutes",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -140,7 +117,7 @@
   "chip_strategy_consensus": [
     {
       "average_confidence": 1.0,
-      "item": "free hit in gw33 wildcard in gw35 one transfer likely in gw31 but saving two for flexibility after the international break",
+      "item": "free hit in gameweek 33 wildcard in gameweek 35",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
@@ -148,7 +125,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "if all chips remaining wildcard gw32 bench boost gw33 free hit gw34 triple captain gw36 if team is strong and multiple transfers in hand lean toward this explosive strategy otherwise free hit gw33 wildcard gw35 triple captain gw36 bench boost 36 37 viable tailor to team structure and transfers left avoid wild carding just to use a chip unless team needs it",
+      "item": "wildcard 32 bench boost 33 free hit 34 triple captain 36 is harry top recommendation but alternatives are posed for managers with different chip counts and squad strengths free hit 33 plus wildcard 35 is strong if team is good now",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -156,7 +133,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "strong split 45 on wildcard 32 41 saving wildcard for later alternate strategies bb in gw32 or gw33 free hit in gw33 or gw34 some plan to wc in 35 bb36 fh33 and use tc in gw36 chip use heavily depends on each manager squad and planned navigation of upcoming doubles blanks",
+      "item": "wildcard 32 viable to set up for bb33 but is not essential if the current team is strong delayed wildcard with fh33 bb36 and wc35 also popular one manager cited planning for bb32 fh33 wc35 tc36 highly dependent on current team setup and remaining chips",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
@@ -164,7 +141,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "wildcard in 32 if planning bench boost in 33 and free hit in 34 otherwise hold wildcard for 33 adapt picks if you do not have free hit available for 34 include more players with fixtures in 34 if so",
+      "item": "wildcard gw32 if bb33 fh34 free hit 33 or 34 recommendations tailored per team",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -172,7 +149,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "wildcard in gw32 bench boost gw33 free hit gw34 manage transfers for dgw36 37",
+      "item": "wildcard in gw32 bench boost in gw33 free hit in gw34 future palace and arsenal additions planned via free transfers",
       "mention_count": 1,
       "supporting_experts": [
         "Let's Talk FPL"
@@ -181,699 +158,740 @@
   ],
   "conditional_advice": [
     {
-      "expert_name": "FPL Harry",
-      "reason": "conditional_scenario",
-      "related_entities": [],
-      "text": "If team is already strong this week, can delay wild card to GW35 to catch Crystal Palace double in 36 and strong season run-in"
-    },
-    {
-      "expert_name": "FPL Raptor",
+      "expert_name": "The FPL Wire (Zophar)",
       "reason": "injury_update",
       "related_entities": [],
-      "text": "Ekitiké is a fitness/minutes risk with upcoming matches"
+      "text": "Watching for fitness news on Mukiele before deciding transfers"
     }
   ],
   "disagreements": {
     "captaincy": [
       {
         "expert_map": {
-          "Anthony Gordon": [
+          "Anthony Gordon Matteas Kuna Salah Differentials": [
             "FPL Raptor"
           ],
-          "Bowen West Ham Friday Fixture Differential": [
-            "FPL Harry"
-          ],
-          "Bruno Fernandes": [
+          "Bruno Fernandes Clear First Choice": [
             "The FPL Wire (Zophar)"
           ],
-          "Bruno Fernandes Manchester United Overwhelming Favorite 98": [
+          "Bruno Fernandes Main Recommendation": [
+            "FPL Raptor"
+          ],
+          "Bruno Fernandes Manchester United Overwhelming Favorite": [
             "FPL Focal"
           ],
-          "Bruno Fernandes Top Pick": [
-            "FPL Raptor"
-          ],
-          "Bruno Man Utd": [
+          "Bruno Fernandes Mun Primary": [
             "FPL Harry"
           ],
-          "Danny Welbeck": [
+          "Danny Welbeck Differential": [
             "FPL Raptor"
           ],
-          "Erling Haaland": [
+          "Erling Haaland Decent But Not Preferred": [
             "FPL Raptor"
           ],
-          "Haaland Man City": [
-            "FPL Harry"
-          ],
-          "Haaland Manchester City Only 2": [
+          "Erling Haaland Manchester City Low Support": [
             "FPL Focal"
           ],
-          "Jared Bowen": [
-            "FPL Raptor"
+          "Erling Haaland Mci High Upside": [
+            "FPL Harry"
           ],
-          "Matteas Cunha": [
-            "FPL Raptor"
-          ],
-          "Mohamed Salah Minutes Risk": [
-            "FPL Raptor"
-          ],
-          "Not Explicitly Stated Likely Default Is Haaland If Fit": [
+          "Harland Implied As Key Striker Likely Captain Given No Alternate Captaincy Discussion": [
             "Let's Talk FPL"
           ],
-          "Salah Liverpool If Minutes Starting Likely": [
+          "Jared Bowen Differential": [
+            "FPL Harry"
+          ],
+          "Jared Bowen Vice Or Differential": [
+            "FPL Raptor"
+          ],
+          "Salah Only If Confident In Minutes": [
             "FPL Harry"
           ],
           "Thiago": [
+            "FPL Harry",
             "FPL Raptor"
-          ],
-          "Thiago Liverpool": [
-            "FPL Harry"
           ]
         },
         "options": [
-          "Anthony Gordon",
-          "Bowen West Ham Friday Fixture Differential",
-          "Bruno Fernandes",
-          "Bruno Fernandes Manchester United Overwhelming Favorite 98",
-          "Bruno Fernandes Top Pick",
-          "Bruno Man Utd",
-          "Danny Welbeck",
-          "Erling Haaland",
-          "Haaland Man City",
-          "Haaland Manchester City Only 2",
-          "Jared Bowen",
-          "Matteas Cunha",
-          "Mohamed Salah Minutes Risk",
-          "Not Explicitly Stated Likely Default Is Haaland If Fit",
-          "Salah Liverpool If Minutes Starting Likely",
           "Thiago",
-          "Thiago Liverpool"
+          "Anthony Gordon Matteas Kuna Salah Differentials",
+          "Bruno Fernandes Clear First Choice",
+          "Bruno Fernandes Main Recommendation",
+          "Bruno Fernandes Manchester United Overwhelming Favorite",
+          "Bruno Fernandes Mun Primary",
+          "Danny Welbeck Differential",
+          "Erling Haaland Decent But Not Preferred",
+          "Erling Haaland Manchester City Low Support",
+          "Erling Haaland Mci High Upside",
+          "Harland Implied As Key Striker Likely Captain Given No Alternate Captaincy Discussion",
+          "Jared Bowen Differential",
+          "Jared Bowen Vice Or Differential",
+          "Salah Only If Confident In Minutes"
         ]
       }
     ],
     "players": [],
     "strategy": [
       {
-        "side_a": "wait",
+        "side_a": "roll",
         "side_a_experts": [
-          "FPL Focal",
-          "FPL Harry"
-        ],
-        "side_b": "buy_now",
-        "side_b_experts": [
-          "FPL Focal"
-        ]
-      },
-      {
-        "side_a": "wait",
-        "side_a_experts": [
-          "FPL Focal",
-          "FPL Harry"
+          "The FPL Wire (Zophar)"
         ],
         "side_b": "take_hit",
         "side_b_experts": [
           "FPL Focal",
           "FPL Harry",
           "FPL Raptor",
-          "Let's Talk FPL",
+          "The FPL Wire (Zophar)"
+        ]
+      },
+      {
+        "side_a": "wait",
+        "side_a_experts": [
+          "Let's Talk FPL"
+        ],
+        "side_b": "take_hit",
+        "side_b_experts": [
+          "FPL Focal",
+          "FPL Harry",
+          "FPL Raptor",
           "The FPL Wire (Zophar)"
         ]
       }
     ]
   },
   "expert_count": 5,
+  "expert_team_reveals": [
+    {
+      "bench": [
+        "Dubravka",
+        "Hill",
+        "Anderson",
+        "Tavernier"
+      ],
+      "captain": "Bruno Fernandes",
+      "confidence": 1.0,
+      "current_team": [
+        "Verbruggen",
+        "O Reilly",
+        "Sessegnon",
+        "Van Dijk",
+        "Bruno Fernandes",
+        "Mbeumo",
+        "Semeno",
+        "Cole Palmer",
+        "Joao Pedro"
+      ],
+      "expert_name": "FPL Focal",
+      "starting_xi": [
+        "Verbruggen",
+        "Gabriel",
+        "Sessegnon",
+        "Van Dijk",
+        "Bruno Fernandes",
+        "Wilson",
+        "Semeno",
+        "Dango",
+        "Thiago",
+        "Erling Haaland",
+        "Joao Pedro"
+      ],
+      "transfers_in": [],
+      "transfers_out": [],
+      "vice_captain": "Erling Haaland",
+      "video_title": "FPL GW32 EXPERTS TEAM ✅ WILDCARD SPECIAL 💥"
+    },
+    {
+      "bench": [
+        "Darlow Gk Likely",
+        "Other Defenders Midfielders Not Specified Depends On Wc Draft Choices"
+      ],
+      "captain": "Bruno Fernandes Likely",
+      "confidence": 0.6667,
+      "current_team": [
+        "Not All Players Listed See Draft Below Transfer Made Ekitike Out Bowen In Considering Wc32"
+      ],
+      "expert_name": "FPL Harry",
+      "starting_xi": [
+        "Likely From Draft Vugrugan O Riley Van Hecke Gabrielle Senesi James Hill Pascal Gross Semeno Cole Palmer Bruno Fernandes Tavernier Jado Pedro Haaland Calvert Lewin Not Fully Confirmed"
+      ],
+      "transfers_in": [
+        "Jared Bowen"
+      ],
+      "transfers_out": [
+        "Ekitike"
+      ],
+      "vice_captain": "Erling Haaland Likely",
+      "video_title": "SHOULD WE WILDCARD? 🚨 📝 FPL GW32 COMPLETE GUIDE ⁉️ | Fantasy Premier League Tips 2025/26"
+    },
+    {
+      "bench": [],
+      "captain": "Bruno Fernandes",
+      "confidence": 1.0,
+      "current_team": [
+        "Vugrugan",
+        "Darlow",
+        "O Reilly",
+        "Gabrielle",
+        "Kadoglu",
+        "Strau",
+        "Hill",
+        "Semeno",
+        "Cole Palmer",
+        "Bruno Fernandes",
+        "Tavernier",
+        "Mitoma Punt Hinchwood Gross Safer",
+        "Erling Haaland",
+        "Jao Pedro",
+        "Calvert Lewin Calvert Lewin Or Welbeck Both Discussed"
+      ],
+      "expert_name": "FPL Raptor",
+      "starting_xi": [],
+      "transfers_in": [],
+      "transfers_out": [],
+      "vice_captain": "Erling Haaland",
+      "video_title": "FINAL WILDCARD TEAM 🍟 | FPL GW32 DEADLINE DECISIONS 🚨 | Fantasy Premier League Tips 2025/26"
+    },
+    {
+      "bench": [
+        "Darlow",
+        "Taer",
+        "Stra",
+        "Sessi"
+      ],
+      "captain": "Harland",
+      "confidence": 1.0,
+      "current_team": [
+        "For Bugen Goal",
+        "Van Heck",
+        "O Reilly",
+        "Gabrielle",
+        "Bruno Fernandez",
+        "Cole Palmer",
+        "Gross",
+        "Semeno",
+        "Harland",
+        "Xiao Pedro",
+        "Calvert Lewin"
+      ],
+      "expert_name": "Let's Talk FPL",
+      "starting_xi": [
+        "For Bugen Goal",
+        "Van Heck",
+        "O Reilly",
+        "Gabrielle",
+        "Bruno Fernandez",
+        "Cole Palmer",
+        "Gross",
+        "Semeno",
+        "Harland",
+        "Xiao Pedro",
+        "Calvert Lewin"
+      ],
+      "transfers_in": [],
+      "transfers_out": [],
+      "vice_captain": null,
+      "video_title": "WILDCARD ACTIVE 😬"
+    },
+    {
+      "bench": [
+        "Mukiele",
+        "Anderson",
+        "Kroupi"
+      ],
+      "captain": "Bruno Fernandes",
+      "confidence": 1.0,
+      "current_team": [
+        "Brogan",
+        "Burnley",
+        "Virgil",
+        "Gabriel",
+        "Munoz",
+        "Wilson",
+        "Bruno Fernandes",
+        "Buemo",
+        "Dango",
+        "Rogers",
+        "Erling Haaland",
+        "Thiago",
+        "Mukiele",
+        "Anderson",
+        "Kroupi"
+      ],
+      "expert_name": "The FPL Wire (Zophar)",
+      "starting_xi": [
+        "Brogan",
+        "Burnley",
+        "Virgil",
+        "Gabriel",
+        "Munoz",
+        "Wilson",
+        "Bruno Fernandes",
+        "Buemo",
+        "Dango",
+        "Rogers",
+        "Erling Haaland",
+        "Thiago"
+      ],
+      "transfers_in": [
+        "Wilson Already In For Rice",
+        "Possibly Richarlison Or Bowen"
+      ],
+      "transfers_out": [
+        "Rice Already Out For Wilson",
+        "Possibly Troupe Or Munoz"
+      ],
+      "vice_captain": null,
+      "video_title": "Zophar's Gameweek 31 Team Selection  | Fantasy Premier League Tips 2025/26"
+    }
+  ],
   "fixture_insights": [
     {
-      "insight": "Alternate strong chip strategies depend on team strength and remaining chips: free hit 33 wild card 35, or wildcard 33 free hit 34, etc.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Approximately 45% of top managers are on a wildcard for GW32, while 41% are saving it for later.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Arsenal assets are generally being deprioritized for this week, with plans to bring back from GW35.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Arsenal defensive assets (Raya, Gabriel, Saliba) very good for coming fixtures.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Avoid Chelsea defense due to cost and lack of certainty. Focus on strong, cheap defenders from doubling teams.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Bench and transfer planning is essential—having 4-5 transfers allows late pivots that mirror a late wild card team without needing to wild card late.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Bench Boost and Free Hit strategies are being deployed in alternate manners (e.g., BB32/FH33 vs. WC32/BB33).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Bench Boost can be effective in GW32 if team is set up with many strong home fixtures, or in DGW33 for doublers.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Bench Boost in 33 offers the strongest bench this season, especially compared to BB35/36 setups.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Bench boost is best in GW33 if possible (most doubles), but alternatives exist in GW35/36/37 for single gameweek teams.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Bench boost is most valuable in double GW (GW33), but can be tweaked if team suits other timings or if chip not available.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Bench boost strategy requires maximizing doublers for 33, so wildcards should target those teams.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Bench order and start/sit questions approached methodically, with advice to favor attackers in form even with tricky fixtures.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Bench order should reflect form and likely minutes over fixture alone.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Bench ranking for GW32 provided (GK and attackers).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Brighton: Pascal Gross is safest midfield pick; Welbeck, Hinchelwood, Mitoma also options. Avoid Gomez (suspension risk), Ma (low mins).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Bruno is the best captain: multiple routes to points, safe minutes, fixtures, set-pieces, penalties.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Buying Palmer and Tava is based on form and role, but fixtures are 'horrendous' this week, so some suggest holding/selling then Free Hit later for better returns.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Captaincy: Bruno or Haaland preferred; Bowen, Thiago, Salah secondary differentials.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Captaincy is clear: Bruno Fernandes best, followed by Haaland, Thiago, and Bowen.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Cautious advice for those without wild card/free hit: target long-term reliable players (City, Palace, etc.), not just doublers.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Chip plan: Wildcard 32, Bench Boost 33, Free Hit 34.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Crystal Palace potential rotation in GW36 means avoid overinvesting in that double; Conference League progress discussed.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Crystal Palace rotation risk in GW36 due to Conference League (be wary of triple-up).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Defensive choices for Arsenal, Brighton, Leeds rank highly for upcoming fixtures; safety of starts and fixture run are weighed heavily.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Different strategies outlined in detail for all likely chip situations (all chips, no wild card, no bench boost, etc.)—must assess your own squad.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Differential picks like Mitoma benefit from strong fixture (Burnley).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Differentials like Mitoma and Gross (Brighton) are recommended, especially with good fixtures (Burnley).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Ekit is the most sold this week due to doubts about minutes and Champions League rotation.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Ekit sold due to heavy game schedule/rotation risk, as Liverpool has UCL matches and others may return to starting XI.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Ekitike a sell due to minutes risk; Bowen an upgrade.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Ekitiké is a fitness/minutes risk with upcoming matches; selling for a doubler like Welbeck/Calvert-Lewin is advisable unless strong news he starts.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Emphasis on not picking Chelsea defenders or spending heavily on defense except for key options.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Fixture uncertainty for doubles and blanks, especially for teams like Man City, Palace, Chelsea, Newcastle.",
+      "insight": "Already transferred out Rice for Wilson.",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
     },
     {
-      "insight": "Forwards are weak this week but necessary for team structure and future doubles; prioritize team needs according to chip plan.",
+      "insight": "Arsenal defense not urgent this week but will be needed for final run-in; plan ahead.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
       ]
     },
     {
-      "insight": "Frontline of Haaland, João Pedro, and Calvert-Lewin (or Welbeck) is suggested, although forwards do not look strong for GW32 specifically.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Gabrielle, Bruno Fernandes, and Cole Palmer are key holds.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Gordon is good, but a Brighton midfielder (Gross) is preferred due to doubles and money structure.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "GW32 Wildcard lets you maximize GW33 bench boost (most doubles), then Free Hit covers GW34 blank, then Triple Captain in anticipated double GW36 (City/Palace).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Heavy buy/sell activity on Palmer and Joao Pedro due to chip strategy differences.",
+      "insight": "Arsenal players have dropped out of favor for doubles, which affects wildcard picks.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
       ]
     },
     {
-      "insight": "If team is already strong this week, can delay wild card to GW35 to catch Crystal Palace double in 36 and strong season run-in; Free Hit 33 if needed for doublers.",
+      "insight": "Avoiding rotation doubts and card risks increases security for key GWs.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
       ]
     },
     {
-      "insight": "Key defenders include O'Reilly, Gabriel, Brighton and Leeds options; Chelsea defenders are not prioritized.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Leeds: Darlow good GK, Pascal Struijk safest DEF (Rodon/Bejol risk), Ampadu decent DEF, Aaronson unreliable mins up front.",
+      "insight": "Bench Boost 33 has explosive potential but may not fit all teams.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
       ]
     },
     {
-      "insight": "Leeds defense (Darlow) is cheap and enables Bench Boost.",
+      "insight": "Bench boost is best used when fixtures align with strong home/double assets; one manager activated BB32 for immediate fixture gains.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
       ]
     },
     {
-      "insight": "Likely to free hit in GW33, wildcard in GW35.",
+      "insight": "Bowen on watchlist due to future fixture uncertainty—waiting for schedule clarity.",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
     },
     {
-      "insight": "Liverpool's schedule causes likely rotation, downgrading their assets' appeal for GW32.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "insight": "Main assets have strong doubles or are key attackers from high-upside teams.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Midfielders Palmer, Semenyo, Bruno Fernandes, and Tavernier are near-essential.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Minute risks (e.g., Ekitike) and suspension/injury risks (Gomez, Rodon, Bejol) are flagged as avoidances.",
+      "insight": "Bruno and Haaland both have excellent captaincy claims thanks to form, fixtures, and reliability.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
       ]
     },
     {
-      "insight": "Mostly satisfied with current squad for GW32; no urgent transfers needed.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "insight": "Not worried about not having triple Arsenal or triple Palace for later weeks.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Not worried by not having triple Arsenal or Palace; can bring them in later if needed.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "One free transfer may be used, but likely to save the other for flexibility after the break.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "insight": "Plans to manage transfers into Gameweeks 36/37 for any missing Palace or Arsenal players.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Player buys for different draft strategies summarized by position and chip route (see recommendations).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Player recommendations focus on maximizing doublers for GW33, and securing long-term picks (City, Palace, Arsenal) for non-chip users.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Preference for bringing in Tottenham, Fulham, Man United, or possibly West Ham assets over others.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "insight": "Prefers a Brighton midfielder (likely Gross) over Gordon for doubles and price flexibility.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Prefers this chip plan for less injury/rotation risk close to BB, and to optimize for the remaining chips.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Punt picks in midfield (Matoma, Hinchwood, Gross) add upside to an otherwise template wildcard.",
+      "insight": "Bruno Fernandes has multiple routes to points; safest captain due to nailed minutes, set pieces, and overall consistency.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
       ]
     },
     {
-      "insight": "Punts on Matoma, Hinchwood, or Gross are suggested for midfield fifth spot.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Risk of post-break injuries and international minutes prompts conservative transfer usage.",
+      "insight": "Bruno Fernandes is captain due to good fixture and consistency.",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
     },
     {
-      "insight": "Rotation likely for Liverpool due to fixture congestion.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "insight": "Sees little advantage in WC35/BB36 or saving wildcard for later.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Several player transfer moves discussed in depth for managers not wildcarding, with attention to chip strategy.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Some advocate for avoiding Arsenal players now, as they don’t double soon; plan to re-acquire them later (GW35).",
+      "insight": "Bruno is overwhelmingly the top captaincy pick for GW32.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
       ]
     },
     {
-      "insight": "Targeting players with double gameweeks for maximized points potential.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Team selections heavily favor players doubling in GW33.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "insight": "Top targets include Tava, Palmer, and Leeds assets (noted for strong DGW33 fixtures).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Tottenham and Fulham, and possibly Man United assets have favorable fixtures and less rotation risk.",
+      "insight": "Bruno is the clear captain for GW32.",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
     },
     {
-      "insight": "Transfer moves for non-wildcarders are best justified for maximizing doublers or if the outgoing player is injured or a rotation risk.",
+      "insight": "Certain highly owned players should only be sold if chasing or if highly frustrated with them.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
       ]
     },
     {
-      "insight": "Triple captain GW36 (likely City/Palace double) preferred if chip is available, with fallback single GW38 for Salah (if minutes expected).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Typical chip strategy seeks to maximize doubling assets, but depends if team is strong for GW32—if so, delay wildcard.",
+      "insight": "Chelsea assets (e.g. Palmer) have a tough GW32 and blank soon after, so are being rotated in/out based on chip timings.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
       ]
     },
     {
-      "insight": "Waiting for fixture announcements before bringing in West Ham players.",
+      "insight": "Chelsea players are good to sell if free hitting in GW33; limited fixtures afterward.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Chip strategy (when to wildcard, BB, free hit) is highly context-dependent; no universal answer this week.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Cole Palmer and Bruno Fernandez locked in as key midfield assets.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Considering moves on Munoz to Theate, Troupe to Richarlison, but may only do one transfer and roll the other.",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
     },
     {
-      "insight": "Wildcard activated in Gameweek 32 to set up Bench Boost in 33.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "insight": "Wildcard GW32 draft: Vugan/Darlow GK, O'Reilly/Van Heck/Gabriel/Senesi/James Hill DEF, Pascal Gross/Semenyo/Cole Palmer/Bruno/Tavernier MID, J Pedro/Haaland/Calvert-Lewin FWD.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Wildcard GW32 is the most explosive route if all chips remain (allows bench boost GW33, free hit GW34, triple captain GW36).",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "insight": "Wildcard in GW32 is primarily for managers planning to bench boost in GW33 and free hit in GW34.",
+      "insight": "Defensive picks should emphasize double gameweek players; avoid overpaying for Chelsea defense.",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
       ]
     },
     {
-      "insight": "Wildcard now allows for flexibility and holding value players like Palmer, Gabriel.",
+      "insight": "Delay on loading up on Crystal Palace and Arsenal can be managed with future transfers; not necessary to have triple now.",
       "mention_count": 1,
       "supporting_experts": [
         "Let's Talk FPL"
       ]
     },
     {
-      "insight": "Wildcard now can set up well for DGW33 and exploit favorable Leeds fixtures.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Wildcard timing is split; it depends on your team setup and upcoming double/blank gameweeks.",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "insight": "Xiao Pedro included reluctantly for his double, although confidence in him is low.",
+      "insight": "Double gameweek players prioritized for short-term upside.",
       "mention_count": 1,
       "supporting_experts": [
         "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Ekitike's cup and Europe minutes make him a rotation risk, so selling is recommended.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Ekitike is widely sold due to uncertain minutes, with Gakpo and Salah candidates to replace him.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Flexibility with 1.8m ITB to adapt in coming weeks.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Gabrielle likely to be kept for strong Arsenal fixtures.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Gameweek 32 'disaster' for wildcard is likely overblown; team will be competitive.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "GW32 Wildcard + GW33 Bench Boost + GW34 Free Hit + GW36 Triple Captain is the optimal full-chip strategy, especially for those with many chips left.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "insight": "GW32 Wildcard is best if planning Bench Boost in GW33 and Free Hit in GW34.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "insight": "GW33 Bench Boost offers most fixtures and upside.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "insight": "GW33 offers best opportunity for bench boost due to number of double gameweek players.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Key teams to target for doubles/blanks: Chelsea, Brighton, Man City, Burnley, Leeds, Bournemouth (33 double, 34 blank), and Crystal Palace/Man City (possible 36 double).",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "insight": "Leeds' doubles, Burnley fixture, and defensively cheap options offer bench depth for chip usage.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Liverpool assets avoided versus Fulham due to rotation risk.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "insight": "Liverpool likely to rotate vs Fulham due to congested schedule.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "insight": "Maintaining key assets like Gabrielle and Palmer covers strong fixtures.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Midfielders prioritised based on fixtures and attacking output; Palmer and Semeno are must-haves for this period.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "insight": "Minutes risk and injury status for certain players (e.g., Ekite, Rodon, Stack) are crucial to sell/avoid recommendations.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "insight": "Mtoma (Brighton) is a suggested differential.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Multiple captaincy options exist, but Bruno Fernandes is strongly preferred for GW32.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "insight": "No interest in Villa, Man City, Brighton due to fixture congestion and lack of doubles.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "insight": "No real interest in Villa, Man City, or Brighton assets for this week.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "insight": "Open to changing Taer/Brighton mid for a Palace asset ahead of their double.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Open to flexibility depending on future injuries or rotation.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Penalty duties at Leeds are in rotation, but Tavernier is still considered a good pick.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Planning to free hit in GW33 and wildcard in GW35.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "insight": "Player picks should be tailored to each manager's chip status and squad composition; players with additional fixtures and consistent output are preferred.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "insight": "Players doubling in GW33 offer short-term upside and are valuable for Bench Boost.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "insight": "Possible selling of Taer or Brighton midfielder for a Palace player in GW36.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Preference for Brighton midfielder (likely Gross) over Anthony Gordon.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Prioritizing double gameweek players for bench boost.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Richarlison targeted due to Spurs' attacking system and personal confidence.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "insight": "Some preference for Gross (penalty duties) over Wellbeck or Mtoma.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Squad structure and chip count dictate optimal timing—Wildcard 32 best maximizes doubles/bench boost.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "insight": "Strong recent gameweek with a green arrow; current rank improvement.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "insight": "The optimal strategy varies depending on your existing team.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Those with strong teams in GW32 and lots of transfers can consider delaying the wildcard (e.g., Free Hit 33, Wildcard 35 strategy).",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "insight": "Top transfers in are Tavernier (Leeds), Palmer (Chelsea), and defensive Leeds picks for the doubles.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Transfer advice is chip-specific: e.g., O'Reilly for Timber is strong if Free Hit 34, as O'Reilly will maximize fixtures.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "insight": "Transferring out players with unreliable minutes (e.g., Ekitiké) is preferable unless transfer-limited.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "insight": "Watching for fitness news on Mukiele before deciding transfers.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "insight": "Wildcard 32 helps set up for double gameweek 33, especially for Leeds' double and defensive coverage.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "insight": "Wildcard activated in GW32 for bench boost in GW33.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "insight": "Wildcard picks should prioritize players doubling in GW33 and have good value.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "insight": "Wildcard use is almost evenly split—roughly half are going now, half later.",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
       ]
     }
   ],
@@ -882,18 +900,11 @@
     {
       "average_confidence": 1.0,
       "item": "Semeno",
-      "mention_count": 2,
+      "mention_count": 3,
       "supporting_experts": [
         "FPL Focal",
+        "FPL Harry",
         "Let's Talk FPL"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Ampadu Leeds Def Secondary",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
       ]
     },
     {
@@ -909,12 +920,12 @@
       "item": "Bowen West Ham",
       "mention_count": 1,
       "supporting_experts": [
-        "FPL Harry"
+        "FPL Focal"
       ]
     },
     {
       "average_confidence": 1.0,
-      "item": "Bowen West Ham Of Interest But Entry Point Not Ideal This Week",
+      "item": "Bowen West Ham Possibly For Future",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
@@ -922,7 +933,15 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Brighton Defender Van Hecke Or Kadoglu",
+      "item": "Brighton Defender Kadoglu Fun Pick Van Hecke Optimal Pick",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Brighton Mid Mitoma Punt Hinchwood Gross Safer",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -933,20 +952,12 @@
       "item": "Bruno Fernandes",
       "mention_count": 1,
       "supporting_experts": [
-        "Let's Talk FPL"
+        "FPL Focal"
       ]
     },
     {
       "average_confidence": 1.0,
-      "item": "Bruno Fernandes Man United Captaincy Preferred For Gw32",
-      "mention_count": 1,
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Bruno Fernandes Mid",
+      "item": "Bruno Fernandes Man Utd Best Captain In Gw32",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -954,7 +965,15 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Bruno Man Utd Strong Form Captaincy",
+      "item": "Bruno Fernandes Manchester United Captain Recommendation",
+      "mention_count": 1,
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Bruno Fernandes Mun",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -962,10 +981,10 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Bruno Manchester United",
+      "item": "Bruno Fernandez",
       "mention_count": 1,
       "supporting_experts": [
-        "FPL Focal"
+        "Let's Talk FPL"
       ]
     },
     {
@@ -974,14 +993,6 @@
       "mention_count": 1,
       "supporting_experts": [
         "Let's Talk FPL"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Calvert Lewin Good Longer Term",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
       ]
     },
     {
@@ -1002,7 +1013,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Cole Palmer Chelsea",
+      "item": "Cole Palmer Che",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1010,71 +1021,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Cole Palmer Mid",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Danny Welbeck Fwd",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Darlow Gk",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Darlow Leeds Gk",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "David Raya Arsenal Gk",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Dominic Calvert Lewin Fwd",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Erling Haaland Fwd",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Filip Vigrugar Gk",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Gabriel",
+      "item": "Darlow",
       "mention_count": 1,
       "supporting_experts": [
         "Let's Talk FPL"
@@ -1082,7 +1029,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Gabriel Arsenal Starter",
+      "item": "Darlow Gk",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1090,7 +1037,55 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Gabriel Def",
+      "item": "Darlow Leeds Bench Option",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Dominic Calvert Lewin Eve",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Enzo Fernandez Che Only As A Hold Not On Wc",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Erling Haaland Mci",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Gabrielle",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Gabrielle Ars",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Gabrielle Arsenal Plan To Add More Arsenal Defense For Final Gws",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -1101,15 +1096,15 @@
       "item": "Gross Brighton",
       "mention_count": 1,
       "supporting_experts": [
-        "FPL Focal"
+        "Let's Talk FPL"
       ]
     },
     {
       "average_confidence": 1.0,
-      "item": "Gross Brighton Midfielder",
+      "item": "Gross Brighton If Fit",
       "mention_count": 1,
       "supporting_experts": [
-        "Let's Talk FPL"
+        "FPL Focal"
       ]
     },
     {
@@ -1122,7 +1117,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Hauland City",
+      "item": "Hinchelwood Bri Budget Mid",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1130,7 +1125,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Hinchwood Brighton",
+      "item": "Jado Pedro",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1138,7 +1133,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "J Pedro Brighton",
+      "item": "James Hill",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1146,7 +1141,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Jared Bowen Mid For Specific Chip Strategies",
+      "item": "Jao Pedro City Wellbeck Or Calvert Lewin Everton",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -1154,7 +1149,15 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Jared Bowen West Ham Especially If Selling Ekitike",
+      "item": "Jared Bowen For Specific Chip Strategies Notably Free Hit 33",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Jared Bowen Whu",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1170,7 +1173,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Joao Pedro Fwd",
+      "item": "Leeds Defender Strau Hill",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -1178,15 +1181,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Leeds Defender Struijk Or Hill",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Leeds Defensive Asset Darlow",
+      "item": "Mitoma Brighton Differential",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
@@ -1194,26 +1189,10 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Matoma Hinchwood Or Gross Mid For A Punt",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Mitoma Brighton But Less Productive",
+      "item": "Mtoma Bri",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Mitoma Brighton Differential Pick",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
       ]
     },
     {
@@ -1226,7 +1205,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "O Reilly Def",
+      "item": "O Reilly Defender Top Pick For Doubles And Long Term Points",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -1234,7 +1213,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "O Reilly For Dgw",
+      "item": "O Riley",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1250,47 +1229,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Palmer Chelsea Plan For Double Gameweek Strategy Future",
-      "mention_count": 1,
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Pascal Gross Brighton",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Pascal Struijk Leeds Def Safest Pick",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Richarlison Tottenham Hotspur Target If Making An Attacking Transfer",
-      "mention_count": 1,
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Semeno Bournemouth",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Semeno Mid",
+      "item": "Palmer Chelsea Must Have",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Raptor"
@@ -1298,7 +1237,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Senesi Bournemouth",
+      "item": "Pascal Gross Bri",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1306,15 +1245,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Tava Tavernier Bournemouth",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Tavernier Bournemouth",
+      "item": "Pascal Struijk Lee Defense",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1322,15 +1253,7 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Tavernier Mid",
-      "mention_count": 1,
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "item": "Theate Defensive Transfer Target If Necessary",
+      "item": "Richarlison Spurs If Confirmed Fit Suitable",
       "mention_count": 1,
       "supporting_experts": [
         "The FPL Wire (Zophar)"
@@ -1338,7 +1261,71 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Van Dijk Liverpool",
+      "item": "Salah If Minutes Assured",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Semeno Midfielder With Doubles Also Likely Double In 36",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Senesi",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Sessi",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Stra",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Tavar",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Tavernier Bou",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Tavernier Good Cheap Mid",
+      "mention_count": 1,
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Tavernier Leeds",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
@@ -1346,10 +1333,18 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Van Heck Brighton Def",
+      "item": "Van Dijk",
       "mention_count": 1,
       "supporting_experts": [
-        "FPL Harry"
+        "FPL Focal"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Van Heck",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
       ]
     },
     {
@@ -1357,12 +1352,12 @@
       "item": "Van Hecke",
       "mention_count": 1,
       "supporting_experts": [
-        "Let's Talk FPL"
+        "FPL Harry"
       ]
     },
     {
       "average_confidence": 1.0,
-      "item": "Welbeck Brighton Good Gw32 But Mins Risk",
+      "item": "Vugrugan Gk",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Harry"
@@ -1370,10 +1365,18 @@
     },
     {
       "average_confidence": 1.0,
-      "item": "Wilson",
+      "item": "Wilson Newcastle",
       "mention_count": 1,
       "supporting_experts": [
         "FPL Focal"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "item": "Xiao Pedro For Double Gameweek Despite Uncertainty",
+      "mention_count": 1,
+      "supporting_experts": [
+        "Let's Talk FPL"
       ]
     }
   ],
@@ -1381,20 +1384,12 @@
     {
       "average_confidence": 1.0,
       "direction": "buy",
-      "mention_count": 2,
+      "mention_count": 3,
       "player_name": "Semeno",
       "supporting_experts": [
         "FPL Focal",
+        "FPL Harry",
         "Let's Talk FPL"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Ampadu Leeds Def Secondary",
-      "supporting_experts": [
-        "FPL Harry"
       ]
     },
     {
@@ -1412,14 +1407,14 @@
       "mention_count": 1,
       "player_name": "Bowen West Ham",
       "supporting_experts": [
-        "FPL Harry"
+        "FPL Focal"
       ]
     },
     {
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Bowen West Ham Of Interest But Entry Point Not Ideal This Week",
+      "player_name": "Bowen West Ham Possibly For Future",
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
@@ -1428,7 +1423,16 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Brighton Defender Van Hecke Or Kadoglu",
+      "player_name": "Brighton Defender Kadoglu Fun Pick Van Hecke Optimal Pick",
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Brighton Mid Mitoma Punt Hinchwood Gross Safer",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -1439,23 +1443,14 @@
       "mention_count": 1,
       "player_name": "Bruno Fernandes",
       "supporting_experts": [
-        "Let's Talk FPL"
+        "FPL Focal"
       ]
     },
     {
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Bruno Fernandes Man United Captaincy Preferred For Gw32",
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Bruno Fernandes Mid",
+      "player_name": "Bruno Fernandes Man Utd Best Captain In Gw32",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -1464,7 +1459,16 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Bruno Man Utd Strong Form Captaincy",
+      "player_name": "Bruno Fernandes Manchester United Captain Recommendation",
+      "supporting_experts": [
+        "The FPL Wire (Zophar)"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Bruno Fernandes Mun",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1473,9 +1477,9 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Bruno Manchester United",
+      "player_name": "Bruno Fernandez",
       "supporting_experts": [
-        "FPL Focal"
+        "Let's Talk FPL"
       ]
     },
     {
@@ -1485,15 +1489,6 @@
       "player_name": "Calvert Lewin",
       "supporting_experts": [
         "Let's Talk FPL"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Calvert Lewin Good Longer Term",
-      "supporting_experts": [
-        "FPL Harry"
       ]
     },
     {
@@ -1518,7 +1513,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Cole Palmer Chelsea",
+      "player_name": "Cole Palmer Che",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1527,79 +1522,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Cole Palmer Mid",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Danny Welbeck Fwd",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Darlow Gk",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Darlow Leeds Gk",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "David Raya Arsenal Gk",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Dominic Calvert Lewin Fwd",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Erling Haaland Fwd",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Filip Vigrugar Gk",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Gabriel",
+      "player_name": "Darlow",
       "supporting_experts": [
         "Let's Talk FPL"
       ]
@@ -1608,7 +1531,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Gabriel Arsenal Starter",
+      "player_name": "Darlow Gk",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1617,7 +1540,61 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Gabriel Def",
+      "player_name": "Darlow Leeds Bench Option",
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Dominic Calvert Lewin Eve",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Enzo Fernandez Che Only As A Hold Not On Wc",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Erling Haaland Mci",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Gabrielle",
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Gabrielle Ars",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Gabrielle Arsenal Plan To Add More Arsenal Defense For Final Gws",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -1628,16 +1605,16 @@
       "mention_count": 1,
       "player_name": "Gross Brighton",
       "supporting_experts": [
-        "FPL Focal"
+        "Let's Talk FPL"
       ]
     },
     {
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Gross Brighton Midfielder",
+      "player_name": "Gross Brighton If Fit",
       "supporting_experts": [
-        "Let's Talk FPL"
+        "FPL Focal"
       ]
     },
     {
@@ -1653,7 +1630,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Hauland City",
+      "player_name": "Hinchelwood Bri Budget Mid",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1662,7 +1639,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Hinchwood Brighton",
+      "player_name": "Jado Pedro",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1671,7 +1648,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "J Pedro Brighton",
+      "player_name": "James Hill",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1680,7 +1657,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Jared Bowen Mid For Specific Chip Strategies",
+      "player_name": "Jao Pedro City Wellbeck Or Calvert Lewin Everton",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -1689,7 +1666,16 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Jared Bowen West Ham Especially If Selling Ekitike",
+      "player_name": "Jared Bowen For Specific Chip Strategies Notably Free Hit 33",
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Jared Bowen Whu",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1707,7 +1693,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Joao Pedro Fwd",
+      "player_name": "Leeds Defender Strau Hill",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -1716,16 +1702,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Leeds Defender Struijk Or Hill",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Leeds Defensive Asset Darlow",
+      "player_name": "Mitoma Brighton Differential",
       "supporting_experts": [
         "FPL Focal"
       ]
@@ -1734,27 +1711,9 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Matoma Hinchwood Or Gross Mid For A Punt",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Mitoma Brighton But Less Productive",
+      "player_name": "Mtoma Bri",
       "supporting_experts": [
         "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Mitoma Brighton Differential Pick",
-      "supporting_experts": [
-        "FPL Focal"
       ]
     },
     {
@@ -1770,7 +1729,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "O Reilly Def",
+      "player_name": "O Reilly Defender Top Pick For Doubles And Long Term Points",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -1779,7 +1738,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "O Reilly For Dgw",
+      "player_name": "O Riley",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1797,52 +1756,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Palmer Chelsea Plan For Double Gameweek Strategy Future",
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Pascal Gross Brighton",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Pascal Struijk Leeds Def Safest Pick",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Richarlison Tottenham Hotspur Target If Making An Attacking Transfer",
-      "supporting_experts": [
-        "The FPL Wire (Zophar)"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Semeno Bournemouth",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Semeno Mid",
+      "player_name": "Palmer Chelsea Must Have",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -1851,7 +1765,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Senesi Bournemouth",
+      "player_name": "Pascal Gross Bri",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1860,16 +1774,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Tava Tavernier Bournemouth",
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Tavernier Bournemouth",
+      "player_name": "Pascal Struijk Lee Defense",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -1878,16 +1783,7 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Tavernier Mid",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Theate Defensive Transfer Target If Necessary",
+      "player_name": "Richarlison Spurs If Confirmed Fit Suitable",
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
@@ -1896,7 +1792,79 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Van Dijk Liverpool",
+      "player_name": "Salah If Minutes Assured",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Semeno Midfielder With Doubles Also Likely Double In 36",
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Senesi",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Sessi",
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Stra",
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Tavar",
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Tavernier Bou",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Tavernier Good Cheap Mid",
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Tavernier Leeds",
       "supporting_experts": [
         "FPL Focal"
       ]
@@ -1905,9 +1873,18 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Van Heck Brighton Def",
+      "player_name": "Van Dijk",
       "supporting_experts": [
-        "FPL Harry"
+        "FPL Focal"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Van Heck",
+      "supporting_experts": [
+        "Let's Talk FPL"
       ]
     },
     {
@@ -1916,15 +1893,6 @@
       "mention_count": 1,
       "player_name": "Van Hecke",
       "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "buy",
-      "mention_count": 1,
-      "player_name": "Welbeck Brighton Good Gw32 But Mins Risk",
-      "supporting_experts": [
         "FPL Harry"
       ]
     },
@@ -1932,35 +1900,25 @@
       "average_confidence": 1.0,
       "direction": "buy",
       "mention_count": 1,
-      "player_name": "Wilson",
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 2,
-      "player_name": "Rodon Leeds Injured",
-      "supporting_experts": [
-        "FPL Harry",
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Aaronson Leeds Unreliable Minutes",
+      "player_name": "Vugrugan Gk",
       "supporting_experts": [
         "FPL Harry"
       ]
     },
     {
       "average_confidence": 1.0,
-      "direction": "sell",
+      "direction": "buy",
       "mention_count": 1,
-      "player_name": "Anthony Gordon Mainly Due To Fixture And Structure But Rates Him As A Good Pick",
+      "player_name": "Wilson Newcastle",
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "buy",
+      "mention_count": 1,
+      "player_name": "Xiao Pedro For Double Gameweek Despite Uncertainty",
       "supporting_experts": [
         "Let's Talk FPL"
       ]
@@ -1969,25 +1927,16 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Anton Stack Out Until May",
+      "player_name": "Anthony Gordon As A Final Wildcard Pick Despite Acknowledging He A Good Option",
       "supporting_experts": [
-        "FPL Raptor"
+        "Let's Talk FPL"
       ]
     },
     {
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Arsenal Players Temporarily With Intention To Buy Back For Gw35",
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Aston Villa Players Poor Form Not Desirable Now",
+      "player_name": "Aston Villa Assets Poor Form",
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
@@ -1996,34 +1945,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Bejol Leeds Possible Injury Doubt",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Brighton Mids Except Gross Uncertainty Between Gross And Mitoma But Gross Preferred",
-      "supporting_experts": [
-        "Let's Talk FPL"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Bumo",
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Chelsea Defenders Sanchez Cucurella",
+      "player_name": "Bournemouth Mids Not Named Tavernier",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -2032,7 +1954,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Crystal Palace Triple Up May Face Rotation In Gw36 Due To Conference League Run",
+      "player_name": "Brentford Newcastle Assets For Gw34 Bad Fixtures",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -2041,16 +1963,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Dango Unpredictable Minutes",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Ekit Echit Liverpool",
+      "player_name": "Bumo Brentford Being Sold",
       "supporting_experts": [
         "FPL Focal"
       ]
@@ -2059,7 +1972,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Ekitike Due To Fitness Minutes Risk Only Keep If Strong Confidence He Starts",
+      "player_name": "Chelsea Defenders Sanchez Cucurella Not Worth Overpaying",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -2068,7 +1981,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Ekitike Liverpool Attacker Minutes Risk",
+      "player_name": "Danny Welbeck Slight Rotation Injury Doubt For Doubles Risk Vs Calvert Lewin",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -2077,7 +1990,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Elliot Anderson Not Seen As A Big Risk If Not Owned For Sgw",
+      "player_name": "Echit Reduced Minutes",
       "supporting_experts": [
         "Let's Talk FPL"
       ]
@@ -2086,7 +1999,16 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Enzo",
+      "player_name": "Ekitike Uncertain Liverpool Minutes Sell If Possible",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "sell",
+      "mention_count": 1,
+      "player_name": "Ekitike Uncertain Minutes At Liverpool Widely Sold",
       "supporting_experts": [
         "FPL Focal"
       ]
@@ -2095,25 +2017,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Enzo Fernandez Chelsea On Wild Card Hold If Owned But Not A Fresh Buy",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Gomez Brighton Yellow Card Suspension Risk",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Harry Wilson Liverpool Away Not A Strong Pick This Week",
+      "player_name": "Elliot Anderson Good Long Term But Not Feared For A Single Gw",
       "supporting_experts": [
         "Let's Talk FPL"
       ]
@@ -2122,7 +2026,16 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Kudus Injured Or Unreliable For West Ham",
+      "player_name": "Enzo Chelsea Limited Fixtures",
+      "supporting_experts": [
+        "FPL Focal"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "sell",
+      "mention_count": 1,
+      "player_name": "Gomez Bri High Yellow Card Risk",
       "supporting_experts": [
         "FPL Harry"
       ]
@@ -2131,7 +2044,25 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Liverpool Players Expected Rotation Vs Fulham Not A Transfer Priority Now",
+      "player_name": "Leeds Defenders Except Struijk Rotation Injuries",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "sell",
+      "mention_count": 1,
+      "player_name": "Leeds Mid Att Outside Anton Stack Lack Of Standout Options",
+      "supporting_experts": [
+        "FPL Raptor"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "sell",
+      "mention_count": 1,
+      "player_name": "Liverpool Attackers In Gw32 Due To Expected Rotation",
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
@@ -2140,16 +2071,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Ma Brighton Unreliable Minutes",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Man City And Brighton Likely Blanks Not Interested At Present",
+      "player_name": "Man City And Brighton Players Potential Blanks And Uncertainty",
       "supporting_experts": [
         "The FPL Wire (Zophar)"
       ]
@@ -2158,7 +2080,25 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Man United Midfielders Other Than Bruno Cunha Only If Chasing",
+      "player_name": "Moder Bri Unreliable Minutes",
+      "supporting_experts": [
+        "FPL Harry"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "sell",
+      "mention_count": 1,
+      "player_name": "Mtoma Preference For Gross Over Mtoma",
+      "supporting_experts": [
+        "Let's Talk FPL"
+      ]
+    },
+    {
+      "average_confidence": 1.0,
+      "direction": "sell",
+      "mention_count": 1,
+      "player_name": "Players With Single Non Appealing Fixtures In Doubles Over Doublers",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -2167,9 +2107,9 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Players With No Doubles In 33 Or 34 Unless Team Specific Reasoning I E Most Arsenal Except Gabriel",
+      "player_name": "Raya",
       "supporting_experts": [
-        "FPL Raptor"
+        "FPL Focal"
       ]
     },
     {
@@ -2194,16 +2134,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Rya Raya",
-      "supporting_experts": [
-        "FPL Focal"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Snessi Fitness Doubt",
+      "player_name": "Stack Brighton And Rodon Injury Related",
       "supporting_experts": [
         "FPL Raptor"
       ]
@@ -2212,25 +2143,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Wellbeck If Concerned About Minutes Especially After Gw32",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Wilson Only Avoid If Chasing And Want To Attack A Double",
-      "supporting_experts": [
-        "FPL Raptor"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Wilson Selling By Some Buying By Some So Monitor",
+      "player_name": "Wilson Also Widely Sold",
       "supporting_experts": [
         "FPL Focal"
       ]
@@ -2239,16 +2152,7 @@
       "average_confidence": 1.0,
       "direction": "sell",
       "mention_count": 1,
-      "player_name": "Wolves Assets Generally Not Buying Now",
-      "supporting_experts": [
-        "FPL Harry"
-      ]
-    },
-    {
-      "average_confidence": 1.0,
-      "direction": "sell",
-      "mention_count": 1,
-      "player_name": "Xiao Pedro Selected For Doubles Low Confidence",
+      "player_name": "Wilson Harry Wilson Given Liverpool Away",
       "supporting_experts": [
         "Let's Talk FPL"
       ]

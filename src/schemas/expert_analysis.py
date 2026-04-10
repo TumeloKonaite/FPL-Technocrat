@@ -1,6 +1,6 @@
 from typing import Literal
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class ExpertVideoAnalysis(BaseModel):
@@ -15,3 +15,11 @@ class ExpertVideoAnalysis(BaseModel):
     chip_strategy: str | None = None
     reasoning: list[str]
     confidence: Literal["low", "medium", "high"]
+    current_team: list[str] = Field(default_factory=list)
+    starting_xi: list[str] = Field(default_factory=list)
+    bench: list[str] = Field(default_factory=list)
+    captain: str | None = None
+    vice_captain: str | None = None
+    transfers_in: list[str] = Field(default_factory=list)
+    transfers_out: list[str] = Field(default_factory=list)
+    team_reveal_confidence: Literal["low", "medium", "high"] | None = None

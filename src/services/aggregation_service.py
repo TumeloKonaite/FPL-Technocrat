@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from src.schemas.aggregate_report import (
     ConsensusItem,
+    ExpertTeamRevealItem,
     FixtureInsightConsensusItem,
     TransferConsensusItem,
 )
@@ -20,6 +21,7 @@ from src.services.normalization import (
     normalize_lookup_key,
     normalize_player_name,
     normalize_text_label,
+    titleize_normalized,
 )
 
 
@@ -44,6 +46,75 @@ def _unique_normalized_players(players: list[str]) -> set[str]:
 
 def _unique_normalized_text(items: list[str]) -> set[str]:
     return {normalize_text_label(item) for item in items if normalize_text_label(item)}
+
+
+def _canonicalize_player_like_list(items: list[str]) -> list[str]:
+    seen: set[str] = set()
+    output: list[str] = []
+    for item in items:
+        normalized_player = normalize_player_name(item)
+        if normalized_player:
+            display = canonical_player_display(normalized_player)
+        else:
+            display = titleize_normalized(normalize_text_label(item))
+        if not display:
+            continue
+        key = normalize_lookup_key(display)
+        if key in seen:
+            continue
+        seen.add(key)
+        output.append(display)
+    return output
+
+
+def aggregate_expert_team_reveals(
+    analyses: list[ExpertVideoAnalysis],
+) -> list[ExpertTeamRevealItem]:
+    reveals: list[ExpertTeamRevealItem] = []
+
+    for analysis in sorted(analyses, key=lambda item: (item.expert_name.casefold(), item.video_title.casefold())):
+        current_team = _canonicalize_player_like_list(analysis.current_team)
+        starting_xi = _canonicalize_player_like_list(analysis.starting_xi)
+        bench = _canonicalize_player_like_list(analysis.bench)
+        transfers_in = _canonicalize_player_like_list(analysis.transfers_in)
+        transfers_out = _canonicalize_player_like_list(analysis.transfers_out)
+        captain = canonical_player_display(analysis.captain) if analysis.captain else None
+        vice_captain = canonical_player_display(analysis.vice_captain) if analysis.vice_captain else None
+
+        if not any(
+            [
+                current_team,
+                starting_xi,
+                bench,
+                transfers_in,
+                transfers_out,
+                captain,
+                vice_captain,
+            ]
+        ):
+            continue
+
+        confidence = (
+            _confidence_score(analysis.team_reveal_confidence)
+            if analysis.team_reveal_confidence is not None
+            else _confidence_score(analysis.confidence)
+        )
+        reveals.append(
+            ExpertTeamRevealItem(
+                expert_name=analysis.expert_name,
+                video_title=analysis.video_title,
+                current_team=current_team,
+                starting_xi=starting_xi,
+                bench=bench,
+                captain=captain,
+                vice_captain=vice_captain,
+                transfers_in=transfers_in,
+                transfers_out=transfers_out,
+                confidence=round(confidence, 4),
+            )
+        )
+
+    return reveals
 
 
 def dedupe_analyses(
@@ -285,6 +356,7 @@ def build_aggregated_fpl_report(
             disagreements=build_disagreement_report([]),
             conditional_advice=[],
             wait_for_news=[],
+            expert_team_reveals=[],
         )
 
     conditional_advice = extract_conditional_advice(analyses)
@@ -300,4 +372,5 @@ def build_aggregated_fpl_report(
         disagreements=build_disagreement_report(analyses),
         conditional_advice=conditional_advice,
         wait_for_news=extract_wait_for_news_entities(conditional_advice),
+        expert_team_reveals=aggregate_expert_team_reveals(analyses),
     )

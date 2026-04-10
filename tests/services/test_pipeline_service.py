@@ -67,6 +67,7 @@ def _build_final_report(gameweek: int = 32) -> FinalGameweekReport:
         disagreements=[],
         conditional_advice=[],
         wait_for_news=[],
+        expert_team_reveals=[],
         conclusion="Conclusion",
     )
 
@@ -128,6 +129,7 @@ def test_run_pipeline_persists_artifacts_to_requested_output_dir(tmp_path) -> No
     assert result.run_path == output_dir
     assert (output_dir / "discovered_videos.json").exists()
     assert (output_dir / "manifest.json").exists()
+    assert (output_dir / "report.md").exists()
     assert json.loads((output_dir / "expert_outputs.json").read_text(encoding="utf-8")) == [
         analysis.model_dump()
     ]

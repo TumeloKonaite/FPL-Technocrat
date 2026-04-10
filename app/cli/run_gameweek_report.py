@@ -82,6 +82,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         f"synthesis {synthesis_label}. "
         f"Artifacts written to {result.run_path}."
     )
+    print(f"Human-readable report: {result.run_path / 'report.md'}")
     if failure_count:
         print(f"Warning: {failure_count} job(s) failed during orchestration.", file=sys.stderr)
     if result.transcript_failures:

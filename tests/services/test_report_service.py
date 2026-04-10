@@ -65,6 +65,7 @@ def _build_final_report() -> FinalGameweekReport:
         disagreements=[],
         conditional_advice=["Wait for press conference updates."],
         wait_for_news=["Bukayo Saka"],
+        expert_team_reveals=[],
         conclusion="Stay flexible before the deadline.",
     )
 
@@ -149,6 +150,7 @@ def test_persisted_json_is_stable_and_can_be_reloaded(tmp_path) -> None:
     assert reloaded["expert_outputs"] == [item.model_dump() for item in expert_outputs]
     assert reloaded["aggregate_report"] == aggregate_report.model_dump()
     assert reloaded["final_report"] == final_report.model_dump()
+    assert reloaded["report_markdown"].startswith("## GW5 FPL Expert Summary")
 
 
 def test_save_json_handles_nested_datetimes_paths_and_dataclasses(tmp_path) -> None:
@@ -216,6 +218,7 @@ def test_manifest_is_self_describing_and_points_to_existing_artifacts(tmp_path) 
         "expert_outputs": "expert_outputs.json",
         "final_report": "final_report.json",
         "input_jobs": "input_jobs.json",
+        "report_markdown": "report.md",
     }
     assert manifest["duplicate_sources"] == []
     assert manifest["failed_jobs"] == []

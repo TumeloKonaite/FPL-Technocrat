@@ -48,6 +48,14 @@ def _build_minimal_analysis(job: VideoAnalysisJob) -> ExpertVideoAnalysis:
         chip_strategy=None,
         reasoning=[],
         confidence="low",
+        current_team=[],
+        starting_xi=[],
+        bench=[],
+        captain=None,
+        vice_captain=None,
+        transfers_in=[],
+        transfers_out=[],
+        team_reveal_confidence=None,
     )
 
 
