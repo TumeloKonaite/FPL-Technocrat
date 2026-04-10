@@ -1,9 +1,9 @@
 from __future__ import annotations
 
-import json
 from unittest.mock import patch
 
 from app.cli.run_gameweek_report import build_parser, main
+from src.adapters.transcript_api import WebshareProxySettings
 from src.schemas.aggregate_report import DisagreementReport
 from src.schemas.expert_analysis import ExpertVideoAnalysis
 from src.schemas.final_report import AggregatedFPLReport, FinalGameweekReport
@@ -79,6 +79,10 @@ def test_argument_parsing_supports_required_inputs_and_no_synthesis_flag() -> No
             "runs/gw32",
             "--per-expert-limit",
             "3",
+            "--expert-name",
+            "FPL Harry",
+            "--expert-count",
+            "1",
             "--no-synthesis",
         ]
     )
@@ -86,11 +90,63 @@ def test_argument_parsing_supports_required_inputs_and_no_synthesis_flag() -> No
     assert args.gameweek == 32
     assert str(args.output_dir) == "runs/gw32"
     assert args.per_expert_limit == 3
+    assert args.expert_name == "FPL Harry"
+    assert args.expert_count == 1
     assert args.no_synthesis is True
+
+
+def test_cli_loads_dotenv_before_reading_proxy_settings(tmp_path) -> None:
+    output_dir = tmp_path / "runs" / "gw32"
+    result = PipelineRunResult(
+        run_path=output_dir,
+        discovered_videos=[],
+        input_jobs=[],
+        expert_outputs=[],
+        aggregate_report=_build_aggregate_report(),
+        final_report=_build_final_report(),
+        failed_jobs=[],
+        synthesis_enabled=True,
+        transcript_failures=[],
+        configured_experts=0,
+    )
+    events: list[str] = []
+
+    def _fake_load_dotenv() -> None:
+        events.append("dotenv")
+
+    def _fake_load_proxy_settings() -> WebshareProxySettings:
+        events.append("proxy")
+        return WebshareProxySettings(enabled=False)
+
+    with patch(
+        "app.cli.run_gameweek_report.load_dotenv",
+        side_effect=_fake_load_dotenv,
+    ), patch(
+        "app.cli.run_gameweek_report.load_webshare_proxy_settings",
+        side_effect=_fake_load_proxy_settings,
+    ), patch(
+        "app.cli.run_gameweek_report.run_pipeline_sync",
+        return_value=result,
+    ):
+        main(
+            [
+                "--gameweek",
+                "32",
+                "--output-dir",
+                str(output_dir),
+            ]
+        )
+
+    assert events == ["dotenv", "proxy"]
 
 
 def test_cli_smoke_test_reports_success_and_passes_expected_arguments(capsys, tmp_path) -> None:
     output_dir = tmp_path / "runs" / "gw32"
+    proxy_settings = WebshareProxySettings(
+        enabled=True,
+        proxy_username="proxy-user",
+        proxy_password="proxy-pass",
+    )
     result = PipelineRunResult(
         run_path=output_dir,
         discovered_videos=[
@@ -112,7 +168,10 @@ def test_cli_smoke_test_reports_success_and_passes_expected_arguments(capsys, tm
         configured_experts=5,
     )
 
-    with patch("app.cli.run_gameweek_report.run_pipeline_sync", return_value=result) as mocked_run:
+    with patch(
+        "app.cli.run_gameweek_report.load_webshare_proxy_settings",
+        return_value=proxy_settings,
+    ), patch("app.cli.run_gameweek_report.run_pipeline_sync", return_value=result) as mocked_run:
         exit_code = main(
             [
                 "--gameweek",
@@ -121,6 +180,10 @@ def test_cli_smoke_test_reports_success_and_passes_expected_arguments(capsys, tm
                 str(output_dir),
                 "--per-expert-limit",
                 "4",
+                "--expert-name",
+                "FPL Harry",
+                "--expert-count",
+                "1",
             ]
         )
 
@@ -134,7 +197,10 @@ def test_cli_smoke_test_reports_success_and_passes_expected_arguments(capsys, tm
         gameweek=32,
         output_dir=output_dir,
         per_expert_limit=4,
+        expert_name="FPL Harry",
+        expert_count=1,
         synthesis_enabled=True,
+        proxy_settings=proxy_settings,
     )
 
 

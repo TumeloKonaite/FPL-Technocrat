@@ -30,8 +30,19 @@ Typical setup includes:
 
 - model API credentials
 - any provider-specific base URLs
+- optional Webshare proxy credentials for transcript fetching
 
 If you only want deterministic aggregation and artifact generation, you can run with `--no-synthesis` and avoid the final synthesis call.
+
+To route transcript requests through Webshare and reduce YouTube IP blocking, set:
+
+```bash
+ENABLE_WEBSHARE_PROXY=true
+WEBSHARE_PROXY_USERNAME=your_username
+WEBSHARE_PROXY_PASSWORD=your_password
+```
+
+When `ENABLE_WEBSHARE_PROXY` is unset or false-like, transcript fetching uses the default non-proxied `YouTubeTranscriptApi` client. If proxy mode is enabled without credentials, the transcript fetch will fail with a clear configuration error.
 
 ## Automated Flow
 
@@ -119,6 +130,7 @@ uv run pytest tests/services/test_partial_failures.py
 - `Pipeline could not create any usable video analysis jobs from YouTube sources`: discovery returned no relevant videos or no transcript could be used.
 - `Pipeline did not produce any expert analyses`: every job either failed or produced an unusable transcript.
 - Transcript fetch errors: transient provider failures are retried with bounded backoff; exhausted retries are returned as readable errors.
+- Successful transcripts are cached under `data/transcripts/`, and live transcript fetches add a small delay to avoid hammering YouTube too quickly.
 - Empty report sections: this is expected when transcripts do not mention captaincy, chips, transfers, or fixture notes clearly enough.
 
 ## Key Code Paths

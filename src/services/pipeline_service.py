@@ -3,6 +3,8 @@ from __future__ import annotations
 import asyncio
 from dataclasses import dataclass, field
 from pathlib import Path
+
+from src.adapters.transcript_api import WebshareProxySettings
 from src.orchestrators.gameweek_orchestrator import run_gameweek_orchestration
 from src.schemas.expert_analysis import ExpertVideoAnalysis
 from src.schemas.final_report import AggregatedFPLReport, FinalGameweekReport
@@ -67,12 +69,18 @@ async def run_pipeline(
     gameweek: int,
     output_dir: str | Path,
     per_expert_limit: int = 2,
+    expert_name: str | None = None,
+    expert_count: int | None = None,
     synthesis_enabled: bool = True,
     report_service: ReportService | None = None,
+    proxy_settings: WebshareProxySettings | None = None,
 ) -> PipelineRunResult:
     ingestion: YouTubeIngestionResult = ingest_youtube_video_jobs(
         gameweek=gameweek,
         per_expert_limit=per_expert_limit,
+        expert_name=expert_name,
+        expert_count=expert_count,
+        proxy_settings=proxy_settings,
     )
     loaded_jobs = ingestion.input_jobs
     if not loaded_jobs:
@@ -156,15 +164,21 @@ def run_pipeline_sync(
     gameweek: int,
     output_dir: str | Path,
     per_expert_limit: int = 2,
+    expert_name: str | None = None,
+    expert_count: int | None = None,
     synthesis_enabled: bool = True,
     report_service: ReportService | None = None,
+    proxy_settings: WebshareProxySettings | None = None,
 ) -> PipelineRunResult:
     return asyncio.run(
         run_pipeline(
             gameweek=gameweek,
             output_dir=output_dir,
             per_expert_limit=per_expert_limit,
+            expert_name=expert_name,
+            expert_count=expert_count,
             synthesis_enabled=synthesis_enabled,
             report_service=report_service,
+            proxy_settings=proxy_settings,
         )
     )

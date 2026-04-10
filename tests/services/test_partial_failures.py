@@ -42,7 +42,7 @@ def _build_analysis(job: VideoAnalysisJob) -> ExpertVideoAnalysis:
 def test_get_clean_transcript_returns_readable_error_after_retries(monkeypatch) -> None:
     attempts = {"count": 0}
 
-    def _fail(video_id: str) -> str:
+    def _fail(video_id: str, proxy_settings=None) -> str:
         attempts["count"] += 1
         raise TranscriptFetchError(f"temporary issue for {video_id}")
 

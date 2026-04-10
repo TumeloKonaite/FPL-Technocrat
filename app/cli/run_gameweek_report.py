@@ -5,6 +5,9 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
+from dotenv import load_dotenv
+
+from src.adapters.transcript_api import load_webshare_proxy_settings
 from src.services.pipeline_service import PipelineServiceError, run_pipeline_sync
 
 
@@ -27,6 +30,16 @@ def build_parser() -> argparse.ArgumentParser:
         help="Maximum number of recent videos to inspect per configured expert channel.",
     )
     parser.add_argument(
+        "--expert-name",
+        type=str,
+        help="Restrict ingestion to one configured expert by exact name.",
+    )
+    parser.add_argument(
+        "--expert-count",
+        type=int,
+        help="Restrict ingestion to the first N configured experts.",
+    )
+    parser.add_argument(
         "--no-synthesis",
         action="store_true",
         help="Skip final LLM synthesis and write a deterministic fallback final report instead.",
@@ -35,14 +48,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Sequence[str] | None = None) -> int:
+    load_dotenv()
     args = build_parser().parse_args(argv)
+    proxy_settings = load_webshare_proxy_settings()
 
     try:
         result = run_pipeline_sync(
             gameweek=args.gameweek,
             output_dir=args.output_dir,
             per_expert_limit=args.per_expert_limit,
+            expert_name=args.expert_name,
+            expert_count=args.expert_count,
             synthesis_enabled=not args.no_synthesis,
+            proxy_settings=proxy_settings,
         )
     except PipelineServiceError as exc:
         print(f"Error: {exc}", file=sys.stderr)

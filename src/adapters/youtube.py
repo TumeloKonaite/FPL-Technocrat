@@ -1,11 +1,43 @@
 from __future__ import annotations
 
+import re
 from datetime import UTC, datetime
 from typing import Any
 
 
 class YouTubeTranscriptFetchError(RuntimeError):
     """Raised when the YouTube transcript provider cannot return a transcript."""
+
+
+_YOUTUBE_WATCH_ID_PATTERN = re.compile(
+    r"(?:v=|youtu\.be/|/shorts/|/live/)([A-Za-z0-9_-]{11})"
+)
+
+
+def _build_channel_videos_url(channel_url: str) -> str:
+    normalized = channel_url.rstrip("/")
+    if normalized.endswith(("/videos", "/streams", "/live", "/shorts", "/featured")):
+        return normalized
+    return f"{normalized}/videos"
+
+
+def _extract_video_id(entry: dict[str, Any]) -> str:
+    for key in ("url", "webpage_url"):
+        candidate = entry.get(key)
+        if not isinstance(candidate, str):
+            continue
+        match = _YOUTUBE_WATCH_ID_PATTERN.search(candidate)
+        if match:
+            return match.group(1)
+
+    if entry.get("_type") == "playlist":
+        return ""
+
+    video_id = entry.get("id")
+    if isinstance(video_id, str) and video_id:
+        return video_id
+
+    return ""
 
 
 def _build_video_url(video_id: str, entry: dict[str, Any]) -> str:
@@ -36,7 +68,7 @@ def _normalize_published_at(entry: dict[str, Any]) -> str:
 
 
 def _normalize_video_entry(entry: dict[str, Any], expert_name: str) -> dict[str, str] | None:
-    video_id = entry.get("id")
+    video_id = _extract_video_id(entry)
     title = entry.get("title")
     if not isinstance(video_id, str) or not video_id:
         return None
@@ -64,7 +96,7 @@ def _extract_channel_entries(channel_url: str, limit: int) -> list[dict[str, Any
     }
 
     with YoutubeDL(ydl_opts) as ydl:
-        info = ydl.extract_info(channel_url, download=False)
+        info = ydl.extract_info(_build_channel_videos_url(channel_url), download=False)
 
     if not isinstance(info, dict):
         return []

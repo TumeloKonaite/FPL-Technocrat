@@ -8,6 +8,7 @@ from src.adapters.youtube import (
 
 class _FakeYoutubeDL:
     response: dict | None = None
+    last_url: str | None = None
 
     def __init__(self, options: dict) -> None:
         self.options = options
@@ -20,6 +21,7 @@ class _FakeYoutubeDL:
 
     def extract_info(self, url: str, download: bool = False) -> dict | None:
         assert download is False
+        _FakeYoutubeDL.last_url = url
         return self.response
 
 
@@ -51,6 +53,7 @@ def test_get_latest_videos_for_expert_returns_normalized_structure(monkeypatch) 
             "expert_name": "FPL Harry",
         }
     ]
+    assert _FakeYoutubeDL.last_url == "https://www.youtube.com/@FPLHarry/videos"
 
 
 def test_get_latest_videos_for_expert_handles_empty_results(monkeypatch) -> None:
@@ -87,6 +90,42 @@ def test_get_latest_videos_for_expert_skips_malformed_entries(monkeypatch) -> No
             "video_url": "https://www.youtube.com/watch?v=xyz999",
             "published_at": "2026-04-07T00:00:00Z",
             "expert_name": "FPL Focal",
+        }
+    ]
+
+
+def test_get_latest_videos_for_expert_uses_video_tab_and_skips_playlist_entries(monkeypatch) -> None:
+    _FakeYoutubeDL.response = {
+        "entries": [
+            {
+                "id": "UCcPWnCj5AKC19HaySZjb25g",
+                "title": "FPL Harry - Videos",
+                "webpage_url": "https://www.youtube.com/@FPLHarry/videos",
+                "_type": "playlist",
+            },
+            {
+                "id": "NrU5VXScFIw",
+                "title": "GW32 Team Selection",
+                "url": "https://www.youtube.com/watch?v=NrU5VXScFIw",
+            },
+        ]
+    }
+    monkeypatch.setattr("yt_dlp.YoutubeDL", _FakeYoutubeDL)
+
+    videos = get_latest_videos_for_expert(
+        expert_name="FPL Harry",
+        channel_url="https://www.youtube.com/@FPLHarry",
+        limit=3,
+    )
+
+    assert _FakeYoutubeDL.last_url == "https://www.youtube.com/@FPLHarry/videos"
+    assert videos == [
+        {
+            "video_id": "NrU5VXScFIw",
+            "title": "GW32 Team Selection",
+            "video_url": "https://www.youtube.com/watch?v=NrU5VXScFIw",
+            "published_at": "",
+            "expert_name": "FPL Harry",
         }
     ]
 
