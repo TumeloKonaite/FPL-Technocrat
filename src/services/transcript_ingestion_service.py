@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from src.adapters.youtube import get_latest_videos_for_all_experts
+from src.adapters.transcript_api import WebshareProxySettings
+from src.adapters.youtube import get_latest_videos_for_expert
 from src.config.expert_sources import EXPERT_CHANNELS
 from src.schemas.video_job import VideoAnalysisJob
 from src.services.transcript_service import get_clean_transcript
@@ -29,12 +30,50 @@ class YouTubeIngestionResult:
         return len(self.input_jobs)
 
 
+def _select_experts(
+    *,
+    expert_name: str | None = None,
+    expert_count: int | None = None,
+) -> list[dict[str, str]]:
+    experts = [expert for expert in EXPERT_CHANNELS if isinstance(expert.get("name"), str) and isinstance(expert.get("url"), str)]
+
+    if expert_name:
+        requested = expert_name.strip().casefold()
+        experts = [
+            expert
+            for expert in experts
+            if str(expert.get("name", "")).strip().casefold() == requested
+        ]
+
+    if expert_count is not None:
+        if expert_count <= 0:
+            return []
+        experts = experts[:expert_count]
+
+    return experts
+
+
 def ingest_youtube_video_jobs(
     *,
     gameweek: int,
     per_expert_limit: int = 2,
+    expert_name: str | None = None,
+    expert_count: int | None = None,
+    proxy_settings: WebshareProxySettings | None = None,
 ) -> YouTubeIngestionResult:
-    discovered_videos = get_latest_videos_for_all_experts(limit_per_expert=per_expert_limit)
+    selected_experts = _select_experts(
+        expert_name=expert_name,
+        expert_count=expert_count,
+    )
+    discovered_videos: list[dict[str, str]] = []
+    for expert in selected_experts:
+        discovered_videos.extend(
+            get_latest_videos_for_expert(
+                expert_name=str(expert["name"]),
+                channel_url=str(expert["url"]),
+                limit=per_expert_limit,
+            )
+        )
 
     transcript_candidates: list[dict[str, str]] = []
     transcript_failures: list[dict[str, str]] = []
@@ -53,7 +92,10 @@ def ingest_youtube_video_jobs(
             )
             continue
 
-        transcript_payload = get_clean_transcript(video_id)
+        transcript_payload = get_clean_transcript(
+            video_id,
+            proxy_settings=proxy_settings,
+        )
         if transcript_payload.get("status") != "available":
             transcript_failures.append(
                 {
@@ -98,7 +140,7 @@ def ingest_youtube_video_jobs(
     ]
 
     return YouTubeIngestionResult(
-        configured_experts=len(EXPERT_CHANNELS),
+        configured_experts=len(selected_experts),
         discovered_videos=discovered_videos,
         input_jobs=input_jobs,
         transcript_failures=transcript_failures,
@@ -109,8 +151,14 @@ def build_video_jobs_from_youtube(
     *,
     gameweek: int,
     per_expert_limit: int = 2,
+    expert_name: str | None = None,
+    expert_count: int | None = None,
+    proxy_settings: WebshareProxySettings | None = None,
 ) -> list[VideoAnalysisJob]:
     return ingest_youtube_video_jobs(
         gameweek=gameweek,
         per_expert_limit=per_expert_limit,
+        expert_name=expert_name,
+        expert_count=expert_count,
+        proxy_settings=proxy_settings,
     ).input_jobs

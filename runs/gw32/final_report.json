@@ -1,0 +1,57 @@
+{
+  "captaincy": [
+    {
+      "confidence": 1.0,
+      "rationale": "Backed by 1 expert(s): FPL Raptor",
+      "title": "Anthony Gordon"
+    },
+    {
+      "confidence": 1.0,
+      "rationale": "Backed by 1 expert(s): FPL Harry",
+      "title": "Bowen West Ham Friday Fixture Differential"
+    }
+  ],
+  "chip_strategy": [
+    {
+      "confidence": 1.0,
+      "rationale": "Supported by 1 expert(s): The FPL Wire (Zophar)",
+      "title": "free hit in gw33 wildcard in gw35 one transfer likely in gw31 but saving two for flexibility after the international break"
+    },
+    {
+      "confidence": 1.0,
+      "rationale": "Supported by 1 expert(s): FPL Harry",
+      "title": "if all chips remaining wildcard gw32 bench boost gw33 free hit gw34 triple captain gw36 if team is strong and multiple transfers in hand lean toward this explosive strategy otherwise free hit gw33 wildcard gw35 triple captain gw36 bench boost 36 37 viable tailor to team structure and transfers left avoid wild carding just to use a chip unless team needs it"
+    }
+  ],
+  "conclusion": "Use the strongest consensus signals that are actually supported this week. Stay flexible and avoid forcing marginal moves.",
+  "conditional_advice": [
+    "If team is already strong this week, can delay wild card to GW35 to catch Crystal Palace double in 36 and strong season run-in",
+    "Ekitiké is a fitness/minutes risk with upcoming matches"
+  ],
+  "disagreements": [],
+  "fixture_notes": [
+    "Alternate strong chip strategies depend on team strength and remaining chips: free hit 33 wild card 35, or wildcard 33 free hit 34, etc.",
+    "Approximately 45% of top managers are on a wildcard for GW32, while 41% are saving it for later.",
+    "Arsenal assets are generally being deprioritized for this week, with plans to bring back from GW35."
+  ],
+  "gameweek": 32,
+  "overview": "Aggregated input from 5 expert sources produced usable signals for transfers, captaincy, chip strategy, fixture notes, while preserving areas of uncertainty.",
+  "transfers": [
+    {
+      "confidence": 1.0,
+      "rationale": "Mentioned by 2 expert(s): FPL Focal, Let's Talk FPL",
+      "title": "Buy Semeno"
+    },
+    {
+      "confidence": 1.0,
+      "rationale": "Mentioned by 1 expert(s): FPL Harry",
+      "title": "Buy Ampadu Leeds Def Secondary"
+    },
+    {
+      "confidence": 1.0,
+      "rationale": "Mentioned by 1 expert(s): FPL Raptor",
+      "title": "Buy Bournemouth Defender"
+    }
+  ],
+  "wait_for_news": []
+}
