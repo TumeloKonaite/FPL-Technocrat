@@ -30,6 +30,7 @@ def build_final_synthesis_agent(prompt_path: Path | None = None) -> Agent:
         name="FPL Final Synthesizer",
         instructions=instructions,
         output_type=FinalGameweekReport,
+        model="gpt-4.1",
     )
 
 

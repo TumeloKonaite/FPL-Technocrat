@@ -29,4 +29,5 @@ def build_expert_video_agent(prompt_path: Path | None = None) -> Agent:
         name="FPL Video Analyst",
         instructions=instructions,
         output_type=ExpertVideoAnalysis,
+        model="gpt-4.1",
     )
