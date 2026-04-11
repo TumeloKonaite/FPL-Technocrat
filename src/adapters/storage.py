@@ -77,6 +77,12 @@ def save_json(path: str | Path, data: Any) -> None:
     )
 
 
+def save_text(path: str | Path, text: str) -> None:
+    output_path = Path(path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(text if text.endswith("\n") else f"{text}\n", encoding="utf-8")
+
+
 def load_json(path: str | Path) -> dict | list:
     with Path(path).open("r", encoding="utf-8") as handle:
         return json.load(handle)

@@ -53,3 +53,16 @@ class ConditionalAdviceItem(BaseModel):
     text: str
     reason: str
     related_entities: list[str] = Field(default_factory=list)
+
+
+class ExpertTeamRevealItem(BaseModel):
+    expert_name: str
+    video_title: str
+    current_team: list[str] = Field(default_factory=list)
+    starting_xi: list[str] = Field(default_factory=list)
+    bench: list[str] = Field(default_factory=list)
+    captain: str | None = None
+    vice_captain: str | None = None
+    transfers_in: list[str] = Field(default_factory=list)
+    transfers_out: list[str] = Field(default_factory=list)
+    confidence: float | None = Field(default=None, ge=0, le=1)

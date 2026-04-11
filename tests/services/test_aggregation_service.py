@@ -15,6 +15,14 @@ def _build_analysis(
     key_takeaways: list[str] | None = None,
     reasoning: list[str] | None = None,
     confidence: str = "medium",
+    current_team: list[str] | None = None,
+    starting_xi: list[str] | None = None,
+    bench: list[str] | None = None,
+    captain: str | None = None,
+    vice_captain: str | None = None,
+    transfers_in: list[str] | None = None,
+    transfers_out: list[str] | None = None,
+    team_reveal_confidence: str | None = None,
 ) -> ExpertVideoAnalysis:
     return ExpertVideoAnalysis(
         expert_name=expert_name,
@@ -28,6 +36,14 @@ def _build_analysis(
         chip_strategy=chip_strategy,
         reasoning=reasoning or [],
         confidence=confidence,
+        current_team=current_team or [],
+        starting_xi=starting_xi or [],
+        bench=bench or [],
+        captain=captain,
+        vice_captain=vice_captain,
+        transfers_in=transfers_in or [],
+        transfers_out=transfers_out or [],
+        team_reveal_confidence=team_reveal_confidence,
     )
 
 
@@ -164,3 +180,30 @@ def test_aggregated_report_includes_disagreements_and_conditional_advice() -> No
     assert report.disagreements.strategy[0].side_b == "buy_now"
     assert report.conditional_advice[0].reason == "press_conference"
     assert report.wait_for_news == ["Bukayo Saka"]
+
+
+def test_aggregated_report_includes_explicit_expert_team_reveals() -> None:
+    analyses = [
+        _build_analysis(
+            "Expert A",
+            current_team=["Saka", "Salah", "Bruno Fernandes"],
+            starting_xi=["Saka", "Salah", "Bruno Fernandes"],
+            bench=["Fabianski"],
+            captain="Salah",
+            vice_captain="Saka",
+            transfers_in=["Bruno Fernandes"],
+            transfers_out=["Ollie Watkins"],
+            team_reveal_confidence="high",
+        ),
+        _build_analysis("Expert B", recommended_players=["Haaland"]),
+    ]
+
+    report = build_aggregated_fpl_report(analyses)
+
+    assert len(report.expert_team_reveals) == 1
+    reveal = report.expert_team_reveals[0]
+    assert reveal.expert_name == "Expert A"
+    assert reveal.captain == "Mohamed Salah"
+    assert reveal.vice_captain == "Bukayo Saka"
+    assert reveal.transfers_in == ["Bruno Fernandes"]
+    assert reveal.transfers_out == ["Ollie Watkins"]

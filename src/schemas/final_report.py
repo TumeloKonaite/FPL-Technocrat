@@ -6,6 +6,7 @@ from src.schemas.aggregate_report import (
     ConsensusItem,
     ConditionalAdviceItem,
     DisagreementReport,
+    ExpertTeamRevealItem,
     FixtureInsightConsensusItem,
     TransferConsensusItem,
 )
@@ -22,6 +23,7 @@ class AggregatedFPLReport(BaseModel):
     disagreements: DisagreementReport
     conditional_advice: list[ConditionalAdviceItem]
     wait_for_news: list[str]
+    expert_team_reveals: list[ExpertTeamRevealItem] = Field(default_factory=list)
 
 
 class FinalRecommendation(BaseModel):
@@ -36,6 +38,16 @@ class FinalDisagreement(BaseModel):
     sides: list[str] = Field(default_factory=list)
 
 
+class FinalExpertTeamReveal(BaseModel):
+    expert_name: str
+    summary: str
+    captain: str | None = None
+    vice_captain: str | None = None
+    transfers_in: list[str] = Field(default_factory=list)
+    transfers_out: list[str] = Field(default_factory=list)
+    confidence: float | None = Field(default=None, ge=0, le=1)
+
+
 class FinalGameweekReport(BaseModel):
     gameweek: int | None = None
     overview: str
@@ -46,4 +58,5 @@ class FinalGameweekReport(BaseModel):
     disagreements: list[FinalDisagreement] = Field(default_factory=list)
     conditional_advice: list[str] = Field(default_factory=list)
     wait_for_news: list[str] = Field(default_factory=list)
+    expert_team_reveals: list[FinalExpertTeamReveal] = Field(default_factory=list)
     conclusion: str

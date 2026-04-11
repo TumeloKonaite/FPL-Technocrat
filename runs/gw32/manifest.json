@@ -4,7 +4,8 @@
     "discovered_videos": "discovered_videos.json",
     "expert_outputs": "expert_outputs.json",
     "final_report": "final_report.json",
-    "input_jobs": "input_jobs.json"
+    "input_jobs": "input_jobs.json",
+    "report_markdown": "report.md"
   },
   "configured_experts": 5,
   "counts": {
@@ -14,7 +15,7 @@
     "input_jobs": 5,
     "transcript_failures": 0
   },
-  "created_at": "2026-04-10T14:24:08Z",
+  "created_at": "2026-04-10T16:15:32Z",
   "duplicate_sources": [],
   "failed_jobs": [],
   "input_mode": "youtube_auto",

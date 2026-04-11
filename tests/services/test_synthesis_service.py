@@ -8,6 +8,7 @@ from src.schemas.aggregate_report import (
     ConditionalAdviceItem,
     ConsensusItem,
     DisagreementReport,
+    ExpertTeamRevealItem,
     FixtureInsightConsensusItem,
     PlayerDisagreementItem,
     StrategyDisagreementItem,
@@ -105,6 +106,20 @@ def _build_aggregated_report() -> AggregatedFPLReport:
             )
         ],
         wait_for_news=["Bukayo Saka"],
+        expert_team_reveals=[
+            ExpertTeamRevealItem(
+                expert_name="Expert A",
+                video_title="Expert A GW31",
+                current_team=["Mohamed Salah", "Bukayo Saka", "Bruno Fernandes"],
+                starting_xi=["Mohamed Salah", "Bukayo Saka", "Bruno Fernandes"],
+                bench=["Fabianski"],
+                captain="Mohamed Salah",
+                vice_captain="Bukayo Saka",
+                transfers_in=["Bruno Fernandes"],
+                transfers_out=["Ollie Watkins"],
+                confidence=1.0,
+            )
+        ],
     )
 
 
@@ -159,6 +174,7 @@ def test_synthesize_final_report_returns_schema_valid_output() -> None:
         wait_for_news=[
             "Monitor Bukayo Saka team news before locking in transfers.",
         ],
+        expert_team_reveals=[],
         fixture_notes=[
             "Arsenal have the standout fixture run over the next three gameweeks.",
         ],
@@ -188,6 +204,7 @@ def test_synthesize_final_report_short_circuits_empty_input() -> None:
         disagreements=DisagreementReport(),
         conditional_advice=[],
         wait_for_news=[],
+        expert_team_reveals=[],
     )
 
     with patch("src.services.synthesis_service.run_final_synthesis", new_callable=AsyncMock) as mocked_run:
@@ -209,6 +226,8 @@ def test_build_fallback_final_report_is_schema_valid() -> None:
     assert final_report.fixture_notes == [
         "Arsenal have the standout fixture run over the next three gameweeks"
     ]
+    assert final_report.expert_team_reveals[0].expert_name == "Expert A"
+    assert "Bruno Fernandes" in final_report.expert_team_reveals[0].summary
     validated = FinalGameweekReport.model_validate(final_report.model_dump())
     assert validated.wait_for_news == ["Bukayo Saka"]
 

@@ -31,6 +31,14 @@ PLAYER_ALIASES = {
     "bruno": "bruno fernandes",
     "bruno f": "bruno fernandes",
     "bruno fernandes": "bruno fernandes",
+    "bowen": "jarrod bowen",
+    "jarrod bowen": "jarrod bowen",
+    "semenyo": "antoine semenyo",
+    "antoine semenyo": "antoine semenyo",
+    "gordon": "anthony gordon",
+    "anthony gordon": "anthony gordon",
+    "ampadu": "ethan ampadu",
+    "ethan ampadu": "ethan ampadu",
 }
 
 CHIP_ALIASES = {
@@ -184,6 +192,13 @@ def build_analysis_identity(analysis: ExpertVideoAnalysis) -> tuple[str, str]:
             _normalized_players(analysis.recommended_players),
             _normalized_players(analysis.avoid_players),
             _normalized_players(analysis.captaincy_picks),
+            _normalized_players(analysis.current_team),
+            _normalized_players(analysis.starting_xi),
+            _normalized_players(analysis.bench),
+            _normalized_players(analysis.transfers_in),
+            _normalized_players(analysis.transfers_out),
+            normalize_player_name(analysis.captain),
+            normalize_player_name(analysis.vice_captain),
             normalize_chip_name(analysis.chip_strategy),
             _normalized_text(analysis.key_takeaways),
             _normalized_text(analysis.reasoning),

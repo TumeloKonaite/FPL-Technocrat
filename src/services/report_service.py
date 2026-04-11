@@ -4,7 +4,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from src.adapters.storage import build_manifest, create_run_folder, load_json, save_json
+from src.adapters.storage import build_manifest, create_run_folder, load_json, save_json, save_text
+from src.services.report_formatter_service import format_gameweek_markdown_report
 
 
 ARTIFACT_FILENAMES = {
@@ -13,6 +14,7 @@ ARTIFACT_FILENAMES = {
     "expert_outputs": "expert_outputs.json",
     "final_report": "final_report.json",
     "input_jobs": "input_jobs.json",
+    "report_markdown": "report.md",
 }
 
 MANIFEST_FILENAME = "manifest.json"
@@ -59,12 +61,14 @@ class ReportService:
             artifact_name: run_path / filename
             for artifact_name, filename in ARTIFACT_FILENAMES.items()
         }
+        markdown_report = format_gameweek_markdown_report(aggregate_report, final_report)
 
         save_json(artifact_paths["discovered_videos"], discovered_videos or [])
         save_json(artifact_paths["input_jobs"], input_jobs)
         save_json(artifact_paths["expert_outputs"], expert_outputs)
         save_json(artifact_paths["aggregate_report"], aggregate_report)
         save_json(artifact_paths["final_report"], final_report)
+        save_text(artifact_paths["report_markdown"], markdown_report)
 
         manifest = build_manifest(
             run_id=run_path.name,
@@ -96,7 +100,11 @@ class ReportService:
             raise TypeError("Run manifest artifacts must be a JSON object")
 
         loaded_artifacts = {
-            artifact_name: load_json(resolved_run_path / filename)
+            artifact_name: (
+                load_json(resolved_run_path / filename)
+                if str(filename).endswith(".json")
+                else (resolved_run_path / filename).read_text(encoding="utf-8")
+            )
             for artifact_name, filename in artifacts.items()
         }
 

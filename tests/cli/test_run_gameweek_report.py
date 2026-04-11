@@ -64,6 +64,7 @@ def _build_final_report() -> FinalGameweekReport:
         disagreements=[],
         conditional_advice=[],
         wait_for_news=[],
+        expert_team_reveals=[],
         conclusion="Conclusion",
     )
 
@@ -192,6 +193,7 @@ def test_cli_smoke_test_reports_success_and_passes_expected_arguments(capsys, tm
     assert exit_code == 0
     assert "Pipeline completed successfully for gameweek 32." in captured.out
     assert str(output_dir) in captured.out
+    assert "report.md" in captured.out
     assert captured.err == ""
     mocked_run.assert_called_once_with(
         gameweek=32,
@@ -273,6 +275,7 @@ def test_cli_end_to_end_mocked_pipeline_run_persists_outputs(tmp_path) -> None:
     assert (output_dir / "aggregate_report.json").exists()
     assert (output_dir / "final_report.json").exists()
     assert (output_dir / "manifest.json").exists()
+    assert (output_dir / "report.md").exists()
 
 
 def test_cli_returns_readable_failure_message(capsys, tmp_path) -> None:
