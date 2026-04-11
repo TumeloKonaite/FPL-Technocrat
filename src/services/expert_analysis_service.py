@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+from functools import lru_cache
 from typing import Sequence
 
 from agents import Runner
@@ -11,7 +12,12 @@ from src.schemas.video_job import VideoAnalysisJob
 
 
 MIN_TRANSCRIPT_CHAR_LENGTH = 40
-analysis_agent = build_expert_video_agent()
+
+
+@lru_cache(maxsize=1)
+def get_analysis_agent():
+    """Build the analysis agent lazily to avoid import-time client setup."""
+    return build_expert_video_agent()
 
 
 def _build_analysis_prompt(job: VideoAnalysisJob) -> str:
@@ -67,7 +73,7 @@ async def analyze_video_job(job: VideoAnalysisJob) -> ExpertVideoAnalysis:
         return _build_minimal_analysis(job)
 
     prompt = _build_analysis_prompt(job)
-    result = await Runner.run(analysis_agent, prompt)
+    result = await Runner.run(get_analysis_agent(), prompt)
 
     if not isinstance(result.final_output, ExpertVideoAnalysis):
         raise TypeError("Agent did not return ExpertVideoAnalysis")

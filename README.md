@@ -27,14 +27,14 @@ Copy `.env.example` to `.env` and fill in the values you need.
 | --- | --- | --- |
 | `OPENAI_API_KEY` | Usually yes | Credentials for the `openai-agents` runtime used during expert analysis and final synthesis |
 | `OPENAI_BASE_URL` | Optional | Base URL for an OpenAI-compatible provider |
-| `OPENAI_DEFAULT_MODEL` | Optional | Default SDK model for agents that do not set `model=...` explicitly |
+| `OPENAI_DEFAULT_MODEL` | Optional | Default model used when creating provider-aware agent models |
 | `ENABLE_WEBSHARE_PROXY` | Optional | Set to `true` to route transcript fetches through Webshare |
 | `WEBSHARE_PROXY_USERNAME` | If proxy enabled | Webshare username |
 | `WEBSHARE_PROXY_PASSWORD` | If proxy enabled | Webshare password |
 
 `--no-synthesis` only skips the final report synthesis step. The pipeline still uses `openai-agents` earlier to analyze video transcripts, so real pipeline runs still need provider credentials.
 
-This repo currently sets `model="gpt-4.1"` directly in the agent definitions, so `OPENAI_DEFAULT_MODEL` only matters if you later remove those explicit model settings or add new agents that rely on SDK defaults.
+The analysis and synthesis agents use a shared OpenAI-compatible model factory. To target providers such as Ollama Cloud, set `OPENAI_BASE_URL` and `OPENAI_DEFAULT_MODEL` to the values from your provider.
 
 ## Local Development
 
