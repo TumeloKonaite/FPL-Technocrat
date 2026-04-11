@@ -84,7 +84,7 @@ Useful overrides:
 Source of truth command:
 
 ```bash
-uv run streamlit run app/ui/streamlit_app.py
+uv run streamlit run app/ui/streamlit_app.py --server.address 0.0.0.0 --server.port 8501
 ```
 
 Equivalent Make target:
@@ -96,7 +96,7 @@ make run-ui
 To load a specific run folder or artifact:
 
 ```bash
-uv run streamlit run app/ui/streamlit_app.py -- --input runs/gw32
+uv run streamlit run app/ui/streamlit_app.py --server.address 0.0.0.0 --server.port 8501 -- --input runs/gw32
 make run-ui INPUT=runs/gw32
 ```
 

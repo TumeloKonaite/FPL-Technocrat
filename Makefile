@@ -46,7 +46,7 @@ run-cli:
 	$(UV) run python -m app.main "$${args[@]}"
 
 run-ui:
-	@args=(streamlit run app/ui/streamlit_app.py --server.port "$(PORT)"); \
+	@args=(streamlit run app/ui/streamlit_app.py --server.address "0.0.0.0" --server.port "$(PORT)"); \
 	if [[ -n "$(INPUT)" ]]; then args+=(-- --input "$(INPUT)"); fi; \
 	$(UV) run "$${args[@]}"
 

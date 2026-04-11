@@ -52,7 +52,7 @@ def test_build_expert_video_agent_uses_shared_model_factory(tmp_path: Path) -> N
     fake_model = FakeModel()
 
     with patch(
-        "src.agents.expert_video_agent.build_openai_compatible_model",
+        "src.agents.expert_video_agent.build_openai_model",
         return_value=fake_model,
     ) as mock_factory:
         agent = build_expert_video_agent(prompt_path)
@@ -67,7 +67,7 @@ def test_build_final_synthesis_agent_uses_shared_model_factory(tmp_path: Path) -
     fake_model = FakeModel()
 
     with patch(
-        "src.agents.final_synthesis_agent.build_openai_compatible_model",
+        "src.agents.final_synthesis_agent.build_openai_model",
         return_value=fake_model,
     ) as mock_factory:
         agent = build_final_synthesis_agent(prompt_path)

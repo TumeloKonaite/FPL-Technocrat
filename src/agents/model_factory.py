@@ -36,3 +36,15 @@ def build_openai_compatible_model(
         model=configured_model,
         openai_client=client,
     )
+
+
+def build_openai_model(model_name: str | None = None) -> OpenAIChatCompletionsModel:
+    """Build a chat completions model pinned to OpenAI's default API endpoint."""
+    configured_model = model_name or DEFAULT_AGENT_MODEL
+    api_key = _get_optional_env("OPENAI_API_KEY") or "unused"
+    client = AsyncOpenAI(api_key=api_key)
+
+    return OpenAIChatCompletionsModel(
+        model=configured_model,
+        openai_client=client,
+    )
