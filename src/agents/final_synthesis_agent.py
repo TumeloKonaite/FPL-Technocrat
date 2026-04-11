@@ -5,6 +5,7 @@ from pathlib import Path
 
 from agents import Agent, Runner
 
+from src.agents.model_factory import build_openai_compatible_model
 from src.schemas.final_report import AggregatedFPLReport, FinalGameweekReport
 
 
@@ -30,7 +31,7 @@ def build_final_synthesis_agent(prompt_path: Path | None = None) -> Agent:
         name="FPL Final Synthesizer",
         instructions=instructions,
         output_type=FinalGameweekReport,
-        model="gpt-4.1",
+        model=build_openai_compatible_model(),
     )
 
 
