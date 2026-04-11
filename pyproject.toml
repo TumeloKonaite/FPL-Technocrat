@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "fpl-agent"
 version = "0.1.0"
-description = "Add your description here"
+description = "Automated weekly Fantasy Premier League reporting from YouTube expert analysis."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -34,3 +34,6 @@ dev = [
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["app*", "src*"]
+
+[tool.ruff]
+extend-exclude = ["notebooks"]
