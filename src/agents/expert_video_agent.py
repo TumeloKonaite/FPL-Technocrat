@@ -4,7 +4,7 @@ from pathlib import Path
 
 from agents import Agent
 
-from src.agents.model_factory import build_openai_compatible_model
+from src.agents.model_factory import build_openai_model
 from src.schemas.expert_analysis import ExpertVideoAnalysis
 
 
@@ -30,5 +30,5 @@ def build_expert_video_agent(prompt_path: Path | None = None) -> Agent:
         name="FPL Video Analyst",
         instructions=instructions,
         output_type=ExpertVideoAnalysis,
-        model=build_openai_compatible_model(),
+        model=build_openai_model(),
     )
