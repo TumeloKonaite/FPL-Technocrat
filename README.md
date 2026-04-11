@@ -99,6 +99,23 @@ The manifest records fields such as:
 - `transcript_failures`
 - `failed_jobs`
 
+## View In Streamlit
+
+Launch the dashboard against the latest run under `runs/`:
+
+```bash
+uv run streamlit run app/ui/streamlit_app.py
+```
+
+To point the UI at a specific run folder or artifact:
+
+```bash
+uv run streamlit run app/ui/streamlit_app.py -- --input runs/gw32
+uv run streamlit run app/ui/streamlit_app.py -- --input runs/gw32/final_report.json
+```
+
+The sidebar also includes a `Generate Expert Dashboard` button that runs the full pipeline for a chosen gameweek, writes a fresh run folder under `runs/`, and reloads that new report into the same Streamlit session.
+
 ## Weekly Workflow Notes
 
 - Duplicate video URLs are deduplicated before orchestration.
